@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/HRR17-Jigglypuff/HRR17-Jigglypuff.png?label=ready&title=Ready)](https://waffle.io/HRR17-Jigglypuff/HRR17-Jigglypuff)
 # Food Fairy
 
 > Food Fairy allows you to tell it what ingredients you have in the house and it would give you receipe you can make.
