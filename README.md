@@ -1,12 +1,12 @@
-# Project Name
+# Food Fairy
 
-> Pithy project description
+> Food Fairy allows you to tell it what ingredients you have in the house and it would give you receipe you can make.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Felipe Matsumoto
+  - __Scrum Master__: Ryo Wheatley
+  - __Development Team Members__: Jason Brand, Yuan Liu
 
 ## Table of Contents
 
@@ -44,7 +44,7 @@ bower install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://waffle.io/HRR17-Jigglypuff/HRR17-Jigglypuff)
 
 
 ## Contributing
