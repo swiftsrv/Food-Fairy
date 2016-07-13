@@ -1,4 +1,4 @@
-# Project Name #
+Food fairy
 
 <!--
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -18,27 +18,36 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Food ideas based on ingredient available in your fridge.
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Anyone who is hungry and has no ideas about what to cook.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Food fairy will save you time and help you make decisions of what kind of food you can cook with limited amount ingredients. Food fairy can also store recipes and ingredients, suggest grocery list, and allow you to review recipes.
 
 ## Problem ##
   > Describe the problem your product solves.
+  > Food fairy allows you to take advantage of what you already have in your house.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  > Food fairy quickly presents you with a list of recipes that you can pick, test and review.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  > We're not all chefs.
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  > Signup and tell Food Fairy what ingredients you have on hand and it will supply you with all the delicious recipes you need.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > 'Food fairy saved my marriage!'
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  > What are you waiting for? Come join us [link]
