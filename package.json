@@ -8,6 +8,9 @@
     "Ryo",
     "Yuan"
   ],
+  "scripts": {
+    "start": "node server/server.js"
+  },
   "dependencies": {
     "bluebird": "1.0.8",
     "body-parser": "^1.4.3",
