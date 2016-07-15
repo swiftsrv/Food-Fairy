@@ -1,12 +1,18 @@
 var express = require('express');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+
 var app = express();
 
-app.use('/', express.static(__dirname + '/client'));
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/../client'));
 
 app.get('/', function (req, res) {
-  res.send('/client/index.html');
+  res.type('text/html');
+  res.status(200);
+  res.sendFile('index.html');
 });
 
-app.listen(3000, function () {
-  console.log('listening on port 3000');
-});
+module.exports = app;

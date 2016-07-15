@@ -8,8 +8,12 @@
     "Ryo",
     "Yuan"
   ],
+  "engines": {
+    "node": "6.2.2",
+    "npm": "3.9.5"
+  },
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "bluebird": "1.0.8",
