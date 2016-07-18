@@ -1,10 +1,11 @@
 {
   "name": "foodfairy",
   "version": "1.0.0",
-  "description": "Greenfield project",
   "scripts": {
-    "start": "babel . --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline --watch"
+    "start": "node server.js",
+    "babel": "babel . --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled,server --source-maps inline --watch"
   },
+  "description": "Greenfield project",
   "contributors": [
     "Felipe",
     "Jason",
@@ -14,9 +15,6 @@
   "engines": {
     "node": "6.2.2",
     "npm": "3.9.5"
-  },
-  "scripts": {
-    "start": "node index.js"
   },
   "dependencies": {
     "bluebird": "1.0.8",
