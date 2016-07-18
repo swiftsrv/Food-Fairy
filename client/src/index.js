@@ -7,3 +7,5 @@
 //       <Route path="*" component={NoMatch}/>
 //     </Route>
 //   </Router>, document.getElementById('app'))
+
+ReactDOM.render(<Header/>,document.getElementById('app'));
