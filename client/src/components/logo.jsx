@@ -1,6 +1,6 @@
 var Logo = (props) => (
   <div>
-    <img className="logoimage" src="" />
+    <img className="logoimage"/>
   </div>
 )
 
