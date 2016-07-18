@@ -2,6 +2,9 @@
   "name": "foodfairy",
   "version": "1.0.0",
   "description": "Greenfield project",
+  "scripts": {
+    "start": "babel . --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline --watch"
+  },
   "contributors": [
     "Felipe",
     "Jason",
@@ -33,4 +36,3 @@
     "babel-preset-react": "^6.5.0"
   }
 }
-
