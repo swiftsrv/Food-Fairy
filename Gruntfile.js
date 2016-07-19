@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
 
+<<<<<<< HEAD
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
@@ -17,6 +18,10 @@ module.exports = function(grunt) {
       }
     },
 
+=======
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+>>>>>>> 1ac630c2b8237ec7442c0e8ba79d3289b29d5241
     concat: {
       options: {
         separator: ';'
@@ -28,6 +33,7 @@ module.exports = function(grunt) {
       }
     },
 
+<<<<<<< HEAD
     cssmin: {
       target: {
         files: {
@@ -36,6 +42,8 @@ module.exports = function(grunt) {
       }
     },
 
+=======
+>>>>>>> 1ac630c2b8237ec7442c0e8ba79d3289b29d5241
     nodemon: {
       dev: {
         script: 'index.js'
@@ -66,6 +74,17 @@ module.exports = function(grunt) {
       }
     },
 
+<<<<<<< HEAD
+=======
+    cssmin: {
+      target: {
+        files: {
+          'dist/style.min.css' : ['client/**/*.css']
+        }
+      }
+    },
+
+>>>>>>> 1ac630c2b8237ec7442c0e8ba79d3289b29d5241
     shell: {
       prodServer: {
         command: 'git push heroku master'
@@ -104,6 +123,7 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
   // Main grunt tasks
   ////////////////////////////////////////////////////
+
   grunt.registerTask('default', ['babel']);
 
   grunt.registerTask('test', [
