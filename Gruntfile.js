@@ -17,8 +17,6 @@ module.exports = function(grunt) {
       }
     },
 
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
     concat: {
       options: {
         separator: ';'
@@ -117,9 +115,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['babel']);
 
-  grunt.registerTask('test', []);
+  grunt.registerTask('test', ['babel']);
 
-  grunt.registerTask('build', []);
+  grunt.registerTask('build', ['babel']);
 
   // grunt.registerTask('upload', function(n) {
     // if(grunt.option('prod')) {
