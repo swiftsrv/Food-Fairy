@@ -14,4 +14,12 @@ app.get('/', function (req, res) {
   res.status(200);
 });
 
+app.get('/home', function (req, res) {
+  res.redirect('/');
+});
+
+app.get('/search', function (req, res) {
+  res.render('index-searchpage');
+});
+
 module.exports = app;
