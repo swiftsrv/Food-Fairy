@@ -29,3 +29,5 @@ node_modules/
 bower_components/
 client/compiled/
 
+# API key config
+server/config/*.js
