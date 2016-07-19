@@ -12,7 +12,14 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/index.js': 'client/src/index.js'
+          'client/compiled/index.js': 'client/src/index.js',
+          'client/compiled/components/app.js': 'client/src/components/app.jsx',
+          'client/compiled/components/header.js': 'client/src/components/header.jsx',
+          'client/compiled/components/homePage.js': 'client/src/components/homePage.jsx',
+          'client/compiled/components/logo.js': 'client/src/components/logo.jsx',
+          'client/compiled/components/nav.js': 'client/src/components/nav.jsx',
+          'client/compiled/components/navitem.js': 'client/src/components/navitem.jsx',
+          'client/compiled/components/searchPage.js': 'client/src/components/searchPage.jsx',
         }
       }
     },
@@ -22,8 +29,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['!client/compiled/index.js',
-              'client/compiled/**/*.js'],
+        src: ['client/compiled/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -36,41 +42,24 @@ module.exports = function(grunt) {
       }
     },
 
+    jshint: {
+      files: ['client/compiled/**/*.js'],
+      options: {
+        jshintrc: '.jshintrc'
+      }
+    },
+
+    'jshint-jsx': {
+      files: ['client/compiled/**/*.js'],
+      options: {
+        reporterOutput: "",
+        jshintrc: '.jshintrc'
+      }
+    },
+
     nodemon: {
       dev: {
         script: 'index.js'
-      }
-    },
-
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-      },
-      dist: {
-        files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
-        }
-      }
-    },
-
-    jshint: {
-      files: [
-        'client/compiled/**/*.js'
-      ],
-      options: {
-        jshintrc: '.jshintrc',
-        ignores: [
-          'node_modules/**/*.js',
-          'dist/**/*.js'
-        ]
-      }
-    },
-
-    cssmin: {
-      target: {
-        files: {
-          'dist/style.min.css' : ['client/**/*.css']
-        }
       }
     },
 
@@ -85,10 +74,23 @@ module.exports = function(grunt) {
         stderr: true,
       }
     },
+
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-jshint-jsx');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -98,13 +100,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('server-dev', function (target) {
     // Running nodejs in a different process and displaying output on the main console
-    // var nodemon = grunt.util.spawn({
-    //      cmd: 'grunt',
-    //      grunt: true,
-    //      args: 'nodemon'
-    // });
-    // nodemon.stdout.pipe(process.stdout);
-    // nodemon.stderr.pipe(process.stderr);
+    var nodemon = grunt.util.spawn({
+         cmd: 'grunt',
+         grunt: true,
+         args: 'nodemon'
+    });
+    nodemon.stdout.pipe(process.stdout);
+    nodemon.stderr.pipe(process.stderr);
 
     // grunt.task.run([ 'watch' ]);
   });
@@ -113,22 +115,19 @@ module.exports = function(grunt) {
   // Main grunt tasks
   ////////////////////////////////////////////////////
 
-  grunt.registerTask('default', ['babel']);
-
   grunt.registerTask('test', ['babel']);
 
-  grunt.registerTask('build', ['babel']);
+  grunt.registerTask('build', ['concat', 'cssmin', 'uglify']);
 
-  // grunt.registerTask('upload', function(n) {
-    // if(grunt.option('prod')) {
-    //   // add your production server task here
-    //   grunt.task.run([ 'shell:prodServer' ]);
-    // } else {
-    //   grunt.task.run([ 'server-dev' ]);
-    // }
-  // });
+  grunt.registerTask('upload', function(n) {
+    if(grunt.option('prod')) {
+      // add your production server task here
+      grunt.task.run([ 'shell:prodServer' ]);
+    } else {
+      grunt.task.run([ 'server-dev' ]);
+    }
+  });
 
-  grunt.registerTask('deploy', []);
-
+  grunt.registerTask('deploy', ['test', 'build', 'upload']);
 
 };
