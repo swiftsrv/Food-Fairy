@@ -1,7 +1,22 @@
 module.exports = function(grunt) {
 
+  require('load-grunt-tasks')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    babel: {
+      options: {
+        sourceMap: false,
+        presets: ['es2015', 'react']
+      },
+      dist: {
+        files: {
+          'dist/index.js': 'client/src/index.js'
+        }
+      }
+    },
+
     concat: {
       options: {
         separator: ';'
@@ -10,6 +25,14 @@ module.exports = function(grunt) {
         src: ['!client/compiled/index.js',
               'client/compiled/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
+      }
+    },
+
+    cssmin: {
+      target: {
+        files: {
+          'dist/style.min.css' : ['client/**/*.css']
+        }
       }
     },
 
@@ -40,14 +63,6 @@ module.exports = function(grunt) {
           'node_modules/**/*.js',
           'dist/**/*.js'
         ]
-      }
-    },
-
-    cssmin: {
-      target: {
-        files: {
-          'dist/style.min.css' : ['client/**/*.css']
-        }
       }
     },
 
@@ -89,6 +104,7 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
   // Main grunt tasks
   ////////////////////////////////////////////////////
+  grunt.registerTask('default', ['babel']);
 
   grunt.registerTask('test', [
     // 'jshint'
