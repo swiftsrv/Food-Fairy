@@ -8,4 +8,4 @@
 //     </Route>
 //   </Router>, document.getElementById('app'))
 
-ReactDOM.render(<Header/>,document.getElementById('app'));
+ReactDOM.render(<App />,document.getElementById('app'));
