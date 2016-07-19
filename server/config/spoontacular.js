@@ -1,5 +1,5 @@
 // Spoontactular API key goes here
-window.SPOONTACULAR_API_KEY = '?';
+window.SPOONTACULAR_API_KEY = 'CHSXvTPhvhmshIAJKj6FXl71Vsjxp1TU0SojsneuMU7mwvOPFu';
 
 
 // GET URL
