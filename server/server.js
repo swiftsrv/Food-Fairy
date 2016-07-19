@@ -8,11 +8,10 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client'));
+app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 
 app.get('/', function (req, res) {
-  res.type('text/html');
   res.status(200);
-  res.sendFile('index.html');
 });
 
 module.exports = app;
