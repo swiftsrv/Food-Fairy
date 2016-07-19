@@ -11,6 +11,7 @@ class SearchPage extends React.Component {
         <Header />
         <input className="searchbox" type='text' value={this.state.value}/>
         <button className='submitButton'>Search</button>
+        <SavedRecipeList />
         <RecipeList />
       </div>
     )
