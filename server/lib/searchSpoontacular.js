@@ -4,9 +4,7 @@ var searchSpoontacular = function searchSpoontacular(options, callback) {
   // Callback is invoked on the array that we receive from the GET
   // See below for more details on how to use API
 
-  // Find By Ingredients - Find recipes that use as many of the given ingredients as
-  // possible and have as little as possible missing ingredients. This is a whats
-  // in your fridge API endpoint.
+  // Find By Ingredients - Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients. This is a whats in your fridge API endpoint.
   $.ajax({
     // This is the url you should use to communicate
     //with the Spoontacular API server.
@@ -23,12 +21,18 @@ var searchSpoontacular = function searchSpoontacular(options, callback) {
     success: function success(data) {
       console.log(data);
 
-      callback(data.items);
+      callback(data.source);
 
       console.log("Successfully completed GET request");
     },
     error: function error() {
       console.log("Failed to load data from Spoontacular");
+    },
+    beforeSend: function(xhr) {
+      //Enter here your Mashape key
+      //xhr.setRequestHeader("X-Mashape-Authorization", "YOUR-MASHAPE-KEY");
+      //}
+      xhr.setRequestHeader("X-Mashape-Authorization", SPOONTACULAR_API_KEY);
     }
   });
 };
