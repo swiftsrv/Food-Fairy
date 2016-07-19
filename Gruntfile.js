@@ -43,9 +43,9 @@ module.exports = function(grunt) {
     },
 
     eslint: {
-      "extends": ["eslint:recommended", "plugin:react/recommended"],
-      plugins: ["react"],
-      src: ["app.js"]
+      target: [
+        'client/compiled/src/**/*.js'
+      ]
     },
 
     jshint: {
@@ -96,7 +96,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks("grunt-contrib-eslint");
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jshint-jsx');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -104,6 +103,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks("gruntify-eslint");
+
 
   grunt.registerTask('server-dev', function (target) {
     // Running nodejs in a different process and displaying output on the main console
