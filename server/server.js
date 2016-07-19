@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client'));
 app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 
+
 app.get('/', function (req, res) {
   res.status(200);
 });
@@ -19,7 +20,8 @@ app.get('/home', function (req, res) {
 });
 
 app.get('/search', function (req, res) {
-  res.render('index-searchpage');
+  app.use(express.static(__dirname + '/../client'));
+  res.sendFile('./index-searchpage.html');
 });
 
 module.exports = app;
