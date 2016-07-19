@@ -1,5 +1,5 @@
 var RecipeList = (props) => (
-  <div classname="recipe-list">
+  <div className="recipe-list">
     <RecipeEntry />
   </div>
 )
