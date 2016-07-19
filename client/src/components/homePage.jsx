@@ -8,9 +8,9 @@ class Home extends React.Component {
   render(){
     return(
       <div className='home'>
-        <div></div>
+        <Header />
         <input className="searchbox" type='text' value={this.state.value}/>
-        <button className='submitButton'></button>
+        <button className='submitButton'>Search</button>
       </div>
     )
   }
