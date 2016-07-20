@@ -6,18 +6,24 @@ class SearchPage extends React.Component {
     }
   }
 
-  componentWillMount() {
+  createRecipeList(list) {
+    console.log(list);
     this.setState({
-      recipeList: this.props.searchRecipe
+      recipeList: list
     });
   }
+
+  // componentWillMount() {
+  //   this.setState({
+  //     recipeList: this.props.searchRecipe
+  //   });
+  // }
 
   render(){
     return(
       <div className='searchpage'>
         <Header />
-        { console.log(this.props, ' from searchPage') }
-        <SearchBox searchAPI={this.props.searchAPI}/>
+        <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
         <SavedRecipeList />
         <RecipeList recipeList={this.state.recipeList}/>
       </div>
