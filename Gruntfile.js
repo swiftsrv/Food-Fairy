@@ -43,24 +43,9 @@ module.exports = function(grunt) {
     },
 
     eslint: {
-      target: [
+      all: [
         'client/compiled/src/**/*.js'
       ]
-    },
-
-    jshint: {
-      files: ['client/compiled/**/*.js'],
-      options: {
-        jshintrc: '.jshintrc'
-      }
-    },
-
-    'jshint-jsx': {
-      files: ['client/compiled/**/*.js'],
-      options: {
-        reporterOutput: "",
-        jshintrc: '.jshintrc'
-      }
     },
 
     nodemon: {
@@ -96,8 +81,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-jshint-jsx');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha-test');
@@ -123,9 +106,9 @@ module.exports = function(grunt) {
   // Main grunt tasks
   ////////////////////////////////////////////////////
 
-  grunt.registerTask('test', ['babel', 'eslint']);
+  grunt.registerTask('build', ['babel', 'concat', 'cssmin', 'uglify']);
+  grunt.registerTask('test', ['eslint']);
 
-  grunt.registerTask('build', ['concat', 'cssmin', 'uglify']);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {

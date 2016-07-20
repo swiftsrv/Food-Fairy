@@ -2,9 +2,16 @@ class SearchPage extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      value:''
+      recipeList: []
     }
   }
+
+  componentWillMount() {
+    this.setState({
+      recipeList: this.props.searchRecipe
+    });
+  }
+
   render(){
     return(
       <div className='searchpage'>
@@ -12,7 +19,7 @@ class SearchPage extends React.Component {
         <input className="searchbox" type='text' value={this.state.value}/>
         <button className='submitButton'>Search</button>
         <SavedRecipeList />
-        <RecipeList />
+        <RecipeList recipeList={this.state.recipeList}/>
       </div>
     )
   }
