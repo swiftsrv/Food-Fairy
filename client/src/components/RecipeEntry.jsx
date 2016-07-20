@@ -1,7 +1,6 @@
 var RecipeEntry = (props) => {
-  return(
+  return (
     <div className="recipe-list-entry">
-      { console.log( props.recipe ) }
       <div>
         <img className="recipeImg" src={props.recipe.image} alt="" />
       </div>
