@@ -6,7 +6,7 @@ class SearchPage extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
       recipeList: this.props.searchRecipe
     });
@@ -19,7 +19,7 @@ class SearchPage extends React.Component {
         <input className="searchbox" type='text' value={this.state.value}/>
         <button className='submitButton'>Search</button>
         <SavedRecipeList />
-        <RecipeList recipes={this.state.recipeList}/>
+        <RecipeList recipeList={this.state.recipeList}/>
       </div>
     )
   }
