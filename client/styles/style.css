@@ -1,5 +1,5 @@
 body {
-  background-image: url('../imgs/bg.jpg');
+  background: url('../imgs/bg.jpg') no-repeat;
   background-size: cover;
 }
 
@@ -12,35 +12,34 @@ body {
   position: relative;
   border-bottom: 2px solid #e6c6cd;
   background-color: #fff;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
-.navbar li {
-  list-style: none;
-  display: inline-block;
-  padding: 10px 40px;
-  margin: 10px 0px;
+.navbarff a {
+  text-decoration: none;
+  color: #f9c4d1;
+  padding-bottom: 10px;
+}
+
+.navbarff a:hover {
+  color: #7F9525;
+}
+
+.logo {
+  height: 50px;
+}
+
+.line {
   border-right: 1px solid #e6c6cd;
+  border-left: 1px solid #e6c6cd;
+}
+
+.navpad {
+  padding: 15px 0;
   font-family: georgia;
   letter-spacing: 3px;
   font-size: 14px;
-  width: 18%;
 }
 
-.navbar li:hover {
+.navpad:hover {
   background-color: #f6edef;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #f9c4d1;
-}
-
-.logoimage {
-  background: url('../imgs/logo2.png') no-repeat;
-  background-size: contain;
-  width: 24%;
-  height: 50px;
-  display: inline-block;
 }
