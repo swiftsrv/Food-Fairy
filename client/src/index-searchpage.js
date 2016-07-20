@@ -1,1 +1,1 @@
-ReactDOM.render(<SearchPage />,document.getElementById('app'));
+ReactDOM.render(<SearchPage searchRecipe={window.exampleRecipeData}/>,document.getElementById('app'));

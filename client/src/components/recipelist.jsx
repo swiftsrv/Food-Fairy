@@ -1,6 +1,6 @@
 var RecipeList = (props) => (
   <div className="recipe-list">
-    <RecipeEntry />
+    {props.exampleRecipeData.map((recipe, index) => <RecipeEntry key={index} recipe={recipe}/>)}
   </div>
 )
 
