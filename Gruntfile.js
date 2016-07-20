@@ -43,7 +43,7 @@ module.exports = function(grunt) {
     },
 
     eslint: {
-      target: [
+      all: [
         'client/compiled/src/**/*.js'
       ]
     },
