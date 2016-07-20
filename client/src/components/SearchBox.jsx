@@ -5,9 +5,8 @@ class SearchBox extends React.Component {
   }
 
   searchAPI() {
-    console.log(this, this.props);
     this.props.searchAPI({query: this.state.value}, (recipes) => {
-      console.log(recipes);
+      this.props.callback(recipes);
     });
   }
 

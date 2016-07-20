@@ -10,8 +10,7 @@ var searchSpoontacular = function({query, max = 10}, callback) {
       ranking: "1"
     },
     success: function success(data) {
-      console.log(data);
-      if(callback){ callback(data.source); }
+      if (callback) { callback(data); }
       console.log("Successfully completed GET request");
     },
     error: function error() {
