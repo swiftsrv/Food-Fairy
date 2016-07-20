@@ -1,5 +1,5 @@
 var Nav = (props) => (
-  <nav className="navbar">
+  <nav className="container-fluid navbar">
     <ul>
       <a href='/home'><li>Home</li></a>
       <a href='/search'><li>Search</li></a>
