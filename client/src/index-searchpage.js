@@ -1,1 +1,1 @@
-ReactDOM.render(<SearchPage searchRecipe={window.exampleRecipeData}/>, document.getElementById('app'));
+ReactDOM.render(<SearchPage searchRecipe={window.exampleRecipeData} searchAPI={window.searchSpoontacular}/>, document.getElementById('app'));

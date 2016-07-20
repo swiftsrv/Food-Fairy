@@ -16,7 +16,8 @@ class SearchPage extends React.Component {
     return(
       <div className='searchpage'>
         <Header />
-        <SearchBox />
+        { console.log(this.props, ' from searchPage') }
+        <SearchBox searchAPI={this.props.searchAPI}/>
         <SavedRecipeList />
         <RecipeList recipeList={this.state.recipeList}/>
       </div>
