@@ -13,10 +13,10 @@ class SearchBox extends React.Component {
       type: 'POST',
       data: { query: this.state.value },
       success: function(data) {
-        console.log('success')
+        // console.log('success')
       }.bind(this),
       error: function() {
-        console.log('failure')
+        // console.log('failure')
       }
     });
   }
@@ -27,15 +27,16 @@ class SearchBox extends React.Component {
       url: '/api/searches',
       type: 'GET',
       success: function(data) {
-        console.log('success' + JSON.stringify(data))
+        // console.log('success' + JSON.stringify(data))
       }.bind(this),
       error: function() {
-        console.log('failure')
+        // console.log('failure')
       }
     });
   }
 
   searchAPI() {
+    // console.log(this.props);
     this.props.searchAPI({query: this.state.value}, (recipes) => {
       this.props.callback(recipes);
     });

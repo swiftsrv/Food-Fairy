@@ -1,5 +1,3 @@
-var SPOONTACULAR_API_KEY = SPOONTACULAR_API_KEY || process.env.SPOONTACULAR_API_KEY;
-
 var searchSpoontacular = function({query, max = 10}, callback) {
   $.ajax({
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients',
