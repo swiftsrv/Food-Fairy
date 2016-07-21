@@ -10,7 +10,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client'));
-app.use('/style', express.static(__dirname + '/../client/style'));
+app.use('/styles', express.static(__dirname + '/../client/style'));
 app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 app.use('/server', express.static(__dirname));
 
@@ -72,7 +72,7 @@ var Search = mongoose.model('Search', searchSchema);
 
 //get all recipes from db
 app.get('/api/recipes', function(req, res){
-  db.Recipe.find({}).exec(function(err, recipes){
+  Recipe.find({}).exec(function(err, recipes){
     if(err){
       res.send(err);
     } else {
@@ -88,18 +88,17 @@ app.post('/api/recipes', function(req, res){
   var inbound = req.body;
   console.log('got to post', inbound);
 
-  var recipe = new db.Recipe({
+  var recipe = new Recipe({
     title: inbound.title,
     image: inbound.image,
-    missedIngredients: inbound.missedIngredients,
-    usedIngredients: inbound.usedIngredients
+    likes: inbound.likes
   });
 
   recipe.save(function(err, data){
     if(err){
       res.send(err);
     } else {
-      db.Recipe.find(function(err, data) {
+      Recipe.find(function(err, data) {
         if(err){
           res.send(err);
         } else {
@@ -113,11 +112,11 @@ app.post('/api/recipes', function(req, res){
 
 //remove recipe and send back all recipes
 app.delete('/api/recipes/:recipe', function(req, res){
-  db.Recipe.remove({ _id : req.params.recipe_id }, function(err, recipe){
+  Recipe.remove({ _id : req.params.recipe_id }, function(err, recipe){
     if(err){
       res.send(err);
     } else {
-      db.Recipe.find(function(err, recipes){
+      Recipe.find(function(err, recipes){
         if(err){
           res.send(err);
         } else {
@@ -169,11 +168,11 @@ app.post('/api/searches', function(req, res){
 
 //remove search and send back all search
 app.delete('/api/searches/:search', function(req, res){
-  db.Search.remove({ _id : req.params.search_id }, function(err, search){
+  Search.remove({ _id : req.params.search_id }, function(err, search){
     if(err){
       res.send(err);
     } else {
-      db.Search.find(function(err, searches){
+      Search.find(function(err, searches){
         if(err){
           res.send(err);
         } else {
