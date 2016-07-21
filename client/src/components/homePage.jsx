@@ -6,7 +6,7 @@ class Home extends React.Component {
     return(
       <div className='home'>
         <Header />
-        <SearchBox />
+        <SearchBox searchAPI={this.props.searchAPI}/>
       </div>
     )
   }
