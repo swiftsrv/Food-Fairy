@@ -14,13 +14,17 @@ body {
   background-color: #fff;
 }
 
-.navbarff a {
+.navbar {
+  margin: 10px 0;
+}
+
+.navbar a {
   text-decoration: none;
   color: #f9c4d1;
   padding-bottom: 10px;
 }
 
-.navbarff a:hover {
+.navbar a:hover {
   color: #7F9525;
 }
 
