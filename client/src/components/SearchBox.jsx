@@ -5,9 +5,7 @@ class SearchBox extends React.Component {
   }
 
   saveSearch(){
-    //For testing purposes. Want to ensure Heroku database works
-
-    //save search
+    //save current search
     $.ajax({
       url: '/api/searches',
       type: 'POST',
@@ -21,8 +19,9 @@ class SearchBox extends React.Component {
     });
   }
 
-  listSearch(){
-    //grab all past searches
+  listSearches(){
+    //retrieve all past searches
+    //need a spot to place past searches
     $.ajax({
       url: '/api/searches',
       type: 'GET',
@@ -48,7 +47,7 @@ class SearchBox extends React.Component {
         <input className="searchbox" type="text" onChange={(event) => {
           this.setState({value: event.target.value});
         }} value={this.state.value}/>
-        <button className="submitButton" onClick={() => {this.searchAPI(); this.saveSearch(); this.listSearch();}}>Search</button>
+        <button className="submitButton" onClick={() => {this.searchAPI(); this.saveSearch(); this.listSearches();}}>Search</button>
       </div>
     )
   }
