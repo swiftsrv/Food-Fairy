@@ -1,7 +1,7 @@
-body {
+/*body {
   background: url('../imgs/bg.jpg') no-repeat;
   background-size: cover;
-}
+}*/
 
 #container {
   opacity: 0.8;
@@ -24,10 +24,6 @@ body {
   padding-bottom: 10px;
 }
 
-.navbar a:hover {
-  color: #7F9525;
-}
-
 .logo {
   height: 50px;
 }
@@ -46,4 +42,13 @@ body {
 
 .navpad:hover {
   background-color: #f6edef;
+  color: #7F9525;
+}
+
+.homebox {
+  margin-top: 50px;
+}
+
+.homebg {
+  height: 600px;
 }
