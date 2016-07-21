@@ -1,3 +1,5 @@
+window.SPOONTACULAR_API_KEY = 'R6un6vpSqfmshTqGWty9ffZySRO0p1QAKU4jsn5Zy79FEs8QMm';
+
 var searchSpoontacular = function({query, max = 10}, callback) {
   $.ajax({
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients',
@@ -46,6 +48,5 @@ var searchInstructions = function(id, callback) {
 
 window.searchSpoontacular = searchSpoontacular;
 window.searchInstructions = searchInstructions;
-
 
 
