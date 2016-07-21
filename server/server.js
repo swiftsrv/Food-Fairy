@@ -10,6 +10,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client'));
+app.use('/style', express.static(__dirname + '/../client/style'));
 app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 app.use('/server', express.static(__dirname));
 
