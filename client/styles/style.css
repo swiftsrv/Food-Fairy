@@ -46,9 +46,21 @@
 }
 
 .homebox {
-  margin-top: 50px;
+  border-top: 2px solid #99D3BF;
+  background-color: #d1f2e7;
 }
 
-.homebg {
-  height: 600px;
+.homeIntro {
+  font-family: Comic Sans MS;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 26px;
+  color: #2b3934;
+  padding-top: 50px;
+  text-align: center;
+  width: 30%;
+}
+
+.searchbox {
+  margin-left: 50px;
 }
