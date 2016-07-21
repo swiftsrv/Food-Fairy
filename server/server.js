@@ -33,6 +33,7 @@ app.get('/saved', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/index-savedpage.html'));
 });
 
+var SPOONTACULAR_API_KEY = SPOONTACULAR_API_KEY || process.env.SPOONTACULAR_API_KEY;
 
 //connect to monglab for production or localhost for dev
 mongoURI = 'mongodb://foodfairy:12345@ds023425.mlab.com:23425/heroku_xnp0xnxj' ||

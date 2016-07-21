@@ -7,7 +7,7 @@ class SearchPage extends React.Component {
   }
 
   createRecipeList(list) {
-    console.log(list);
+    // console.log(list);
     this.setState({
       recipeList: list
     });
