@@ -1,15 +1,29 @@
-var RecipeEntry = (props) => {
-  return (
-    <div className="recipe-list-entry">
-      <div>
-        <img className="recipeImg" src={props.recipe.image} alt="" />
+class RecipeEntry extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      smallCard: true
+    }
+  }
+
+  toggleCard (){
+    this.setState({
+      smallCard: !this.state.smallCard
+    })
+  }
+  render(){
+    return (
+      <div className="recipe-list-entry" onClick={this.toggleCard.bind(this)}>
+        {(()=>{
+          if(this.state.smallCard){
+            return <SmallRecipeCard recipe={this.props.recipe} />
+          }else{
+            return <LargeRecipeCard recipe={this.props.recipe} searchInstructions={window.searchInstructions}/>
+          }
+        })()}
       </div>
-      <div className="recipeBody">
-        <div className="recipeTitle">{props.recipe.title}</div>
-        <div className="recipeLikes">{props.recipe.likes}</div>
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 window.RecipeEntry = RecipeEntry
