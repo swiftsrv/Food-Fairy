@@ -1,7 +1,6 @@
 body {
   background: url('../imgs/bg.jpg') no-repeat;
-  background-size: contain;
-  width: 100%;
+  background-size: 100%;
 }
 
 #container {
@@ -83,9 +82,8 @@ body {
 }
 
 .recipe-list {
-  width: 60%;
-  margin-left: 3%;
-  margin-right: 2%;
+  margin-left: 15%;
+  margin-right: 15%;
   display: inline-flex;
 }
 
@@ -93,7 +91,7 @@ body {
   width: 100%;
   margin-bottom: 30px;
   opacity: 0.8;
-  background-color: #fff;
+  background-color: #f8faf0;
   border: 2px solid #96a266;
   border-radius: 25px;
   padding: 60px;
@@ -119,4 +117,13 @@ body {
 .recipeTitle {
   font-size: 22px;
   font-family: georgia;
+  cursor: pointer;
+}
+
+.recipeLikes {
+  font-size: 16px;
+}
+
+.recipeLikes img {
+  width: 32px;
 }

@@ -402,14 +402,13 @@ class SearchPage extends React.Component {
 
   render(){
     return(
-      <Header />
-      <div className='searchpage'>
-        <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
-        <div className="saved-recipe-list">
-          <SavedRecipeList />
-        </div>
-        <div className="recipe-list">
-          <RecipeList recipeList={this.state.recipeList}/>
+      <div>
+        <Header />
+        <div className='searchpage'>
+          <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
+          <div className="recipe-list">
+            <RecipeList recipeList={this.state.recipeList}/>
+          </div>
         </div>
       </div>
     )
