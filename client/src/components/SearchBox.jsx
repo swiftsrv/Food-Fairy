@@ -12,15 +12,14 @@ class SearchBox extends React.Component {
 
   render(){
     return(
-      <div>
-        <input className="searchbox" type="text" onChange={(event) => {
+      <div className="center-block searchbox">
+        <input className="searchboxinput" type="text" onChange={(event) => {
           this.setState({value: event.target.value});
         }} value={this.state.value}/>
-        <button className="submitButton" onClick={() => {this.searchAPI()}}>Search</button>
+        <button className="submitButton searchsubmit" onClick={() => {this.searchAPI()}}>Search</button>
       </div>
     )
   }
 }
 
 window.SearchBox = SearchBox;
-

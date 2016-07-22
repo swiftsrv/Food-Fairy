@@ -14,9 +14,10 @@ class Navitem extends React.Component {
     return(
       <div className="navitem">
         <ul>
-          <li><a href='/home'>Home</a></li>
-          <li><a href='/search'>Search</a></li>
-          <li><a href='/saved'>Saved</a></li>
+          <a href='/home'><li>Home</li></a>
+          <a href='/search'><li>Search</li></a>
+          <a href='/saved'><li>Saved</li></a>
+          <a href='/login'><li>Login</li></a>
         </ul>
       </div>
     )

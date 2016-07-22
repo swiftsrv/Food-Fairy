@@ -20,7 +20,7 @@ class RecipeEntry extends React.Component {
           }else{
             return <LargeRecipeCard recipe={this.props.recipe} searchInstructions={window.searchInstructions} searchSummary={window.searchSummary} searchIngredients={window.searchIngredients}/>
           }
-        })()}
+        })()} 
       </div>
     )
   }

@@ -5,7 +5,6 @@ class Header extends React.Component {
   render(){
     return(
       <div className='header'>
-        <Logo />
         <Nav />
       </div>
     )

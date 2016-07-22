@@ -48,7 +48,7 @@ class LargeRecipeCard extends React.Component {
 
   render(){
     return(
-      <div>
+      <div className="recipe-card-large">
         <div>
           <img className="recipeImg" src={this.props.recipe.image} alt="" />
         </div>

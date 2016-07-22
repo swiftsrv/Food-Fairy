@@ -26,10 +26,6 @@ app.get('/search', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/index-searchpage.html'));
 });
 
-app.get('/search', function (req, res) {
-  res.sendFile(path.join(__dirname + '/../client/index-searchpage.html'));
-});
-
 app.get('/saved', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/index-savedpage.html'));
 });

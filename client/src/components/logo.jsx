@@ -1,7 +1,5 @@
 var Logo = (props) => (
-  <div>
-    <img className="logoimage"/>
-  </div>
+  <div className="logoimage"></div>
 )
 
 window.Logo = Logo;

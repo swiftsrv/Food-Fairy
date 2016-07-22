@@ -1,13 +1,129 @@
 body {
-  background-color: #fff;
-  background-image: './imgs/bg.jpg';
-  background-size: contain;
+  background: url('../imgs/bg.jpg') no-repeat;
+  background-size: 100%;
 }
 
-#app {
-  background-color: #91e4fb;
+#container {
+  opacity: 0.8;
+  padding: 10px;
+}
+
+.header {
+  position: relative;
+  border-bottom: 2px solid #e6c6cd;
+  background-color: #fff;
+}
+
+.navbar {
+  margin: 10px 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #f9c4d1;
+  padding-bottom: 10px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.line {
+  border-right: 1px solid #e6c6cd;
+  border-left: 1px solid #e6c6cd;
+}
+
+.navpad {
+  padding: 15px 0;
+  font-family: georgia;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+.navpad:hover {
+  background-color: #f6edef;
+  color: #7F9525;
+}
+
+.homebox {
+  border-top: 2px solid #c9d695;
+  background-color: #ebf1d5;
+}
+
+.homeIntro {
+  font-family: Comic Sans MS;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 26px;
+  color: #C26538;
+  padding-top: 50px;
+  text-align: center;
+  width: 30%;
+}
+
+.searchbox {
+  padding: 40px 0;
+  width: 60%;
+  opacity: 0.7;
+}
+
+.searchboxinput {
+  width: 80%;
+  margin-right: 3%;
+}
+
+.searchsubmit {
+  width: 17%;
+}
+
+.searchpage {
+  width: 95%;
+  margin: auto;
+}
+
+.recipe-list {
+  margin-left: 15%;
+  margin-right: 15%;
+  display: inline-flex;
+}
+
+.recipe-card {
+  width: 100%;
+  margin-bottom: 30px;
+  opacity: 0.8;
+  background-color: #f8faf0;
+  border: 2px solid #96a266;
   border-radius: 25px;
-  margin: 50px;
-  padding: 30px;
-  color: #7a163c;
+  padding: 60px;
+}
+
+.recipe-card-large {
+
+}
+
+.saved-recipe-list {
+  width: 30%;
+  display: inline-flex;
+  background-color: #f8faf0;
+  border: 2px solid #808d4c;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.recipeImg img {
+  max-width: 100%;
+}
+
+.recipeTitle {
+  font-size: 22px;
+  font-family: georgia;
+  cursor: pointer;
+}
+
+.recipeLikes {
+  font-size: 16px;
+}
+
+.recipeLikes img {
+  width: 32px;
 }

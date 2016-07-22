@@ -1,5 +1,5 @@
 var RecipeList = (props) => (
-  <div className="recipe-list">
+  <div>
     {props.recipeList.map((recipe, index) => <RecipeEntry key={index} recipe={recipe}/>)}
   </div>
 )
