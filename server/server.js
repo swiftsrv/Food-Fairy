@@ -34,6 +34,7 @@ app.get('/saved', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/index-savedpage.html'));
 });
 
+
 // if (process.env.NODE_ENV === 'production') {
 //   SPOONTACULAR_API_KEY = process.env.SPOONTACULAR_API_KEY;
 // } else {
@@ -42,7 +43,7 @@ app.get('/saved', function (req, res) {
 
 //connect to monglab for production or localhost for dev
 mongoURI = 'mongodb://foodfairy:12345@ds023425.mlab.com:23425/heroku_xnp0xnxj' ||
-           'mongodb://localhost/HRR17-Jigglypuff';
+           'mongodb://localhost:27017/HRR17-Jigglypuff';
 
 mongoose.connect(mongoURI);
 
@@ -58,6 +59,7 @@ db.once('open', function () {
 var recipeSchema = mongoose.Schema({
   title: String,
   image: String,
+  likes: Number,
   missedIngredients: String,
   usedIngredients: String
 });
@@ -76,6 +78,7 @@ app.get('/api/recipes', function(req, res){
     if(err){
       res.send(err);
     } else {
+      console.log(recipes)
       res.json(recipes);
     }
   });
@@ -86,8 +89,6 @@ app.get('/api/recipes', function(req, res){
 app.post('/api/recipes', function(req, res){
 
   var inbound = req.body;
-  console.log('got to post', inbound);
-
   var recipe = new Recipe({
     title: inbound.title,
     image: inbound.image,
@@ -111,7 +112,7 @@ app.post('/api/recipes', function(req, res){
 
 
 //remove recipe and send back all recipes
-app.delete('/api/recipes/:recipe', function(req, res){
+app.delete('/api/recipes/:recipe_id', function(req, res){
   Recipe.remove({ _id : req.params.recipe_id }, function(err, recipe){
     if(err){
       res.send(err);
