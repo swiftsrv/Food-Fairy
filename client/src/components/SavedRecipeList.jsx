@@ -12,7 +12,7 @@ class SavedRecipeList extends React.Component {
       success: (data) => {
         this.setState({savedRecipes: data});
       },
-      error: function() {
+      error: () => {
         console.log('failure')
       }
     });
@@ -24,7 +24,7 @@ class SavedRecipeList extends React.Component {
       success: (data) => {
         console.log('delete success')
       },
-      error: function() {
+      error: () => {
         console.log('failure')
       }
     })

@@ -33,7 +33,6 @@ var searchInstructions = function(id, callback) {
       stepBreakdown: "true"
     },
     success: function success(data) {
-      console.log(data);
       if (callback) { callback(data); }
       console.log("Successfully completed GET request");
     },
@@ -74,7 +73,6 @@ var searchIngredients = function(id, callback) {
       id: id
     },
     success: function success(data) {
-      console.log(data);
       if (callback) { callback(data); }
       console.log("Successfully completed GET request");
     },
