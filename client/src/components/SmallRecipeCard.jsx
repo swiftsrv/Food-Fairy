@@ -34,13 +34,13 @@ class SmallRecipeCard extends React.Component {
 
   render(){
     return(
-      <div>
-        <div>
-          <img className="recipeImg" src={this.props.recipe.image} alt=""/>
+      <div className="recipe-card row">
+        <div className="recipeImg col-md-5">
+          <img className="center-block" src={this.props.recipe.image} />
         </div>
-        <div className="recipeBody">
-          <div className="recipeTitle">{this.props.recipe.title}</div>
-          <div className="recipeLikes">{this.props.recipe.likes}</div>
+        <div className="recipeBody col-md-7">
+          <div className="recipeTitle" onClick={this.saveRecipe.bind(this)}>{this.props.recipe.title}</div>
+          <div className="recipeLikes"><img src="imgs/likes.png" />{this.props.recipe.likes}</div>
         </div>
       </div>
     )
