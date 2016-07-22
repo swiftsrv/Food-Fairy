@@ -1,7 +1,10 @@
 class SmallRecipeCard extends React.Component {
   constructor(props){
     super(props);
-    this.state = { saved: false };
+    this.state = {
+      id: this.props.recipe.id,
+      saved: false
+    };
   }
 
   saveRecipe(){
@@ -11,7 +14,9 @@ class SmallRecipeCard extends React.Component {
       type: 'POST',
       data: { title: this.props.recipe.title,
               image: this.props.recipe.image,
-              likes: this.props.recipe.likes },
+              likes: this.props.recipe.likes,
+              summary: this.props.recipe.summary
+            },
       success: function(data) {
         console.log('success')
       }.bind(this),
@@ -38,6 +43,12 @@ class SmallRecipeCard extends React.Component {
     }.bind(this), 2000)
   }
 
+  componentWillMount () {
+    this.props.searchSummary(this.state.id, (data)=>{
+      this.setState({ summary: JSON.stringify(data.summary) })
+    })
+  }
+
   componentWillUnmount () {
     this.savedTimeout && clearTimeout(this.savedTimeout);
     this.savedTimeout = false;
@@ -51,6 +62,7 @@ class SmallRecipeCard extends React.Component {
         </div>
         <div className="recipeBody col-md-7">
           <div className="recipeTitle" onClick={this.saveRecipe.bind(this)}>{this.props.recipe.title}</div>
+          <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
           <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>
           <div className="saved">{this.state.saved ? "Saved!" : null}</div>
         </div>
