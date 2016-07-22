@@ -7,17 +7,10 @@ class SearchPage extends React.Component {
   }
 
   createRecipeList(list) {
-    // console.log(list);
     this.setState({
       recipeList: list
     });
   }
-
-  // componentWillMount() {
-  //   this.setState({
-  //     recipeList: this.props.searchRecipe
-  //   });
-  // }
 
   render(){
     return(

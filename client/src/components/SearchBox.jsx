@@ -4,38 +4,7 @@ class SearchBox extends React.Component {
     this.state = {value: ''};
   }
 
-  saveSearch(){
-    //save current search
-    $.ajax({
-      url: '/api/searches',
-      type: 'POST',
-      data: { query: this.state.value },
-      success: function(data) {
-        // console.log('success')
-      }.bind(this),
-      error: function() {
-        // console.log('failure')
-      }
-    });
-  }
-
-  listSearches(){
-    //retrieve all past searches
-    //need a spot to place past searches
-    $.ajax({
-      url: '/api/searches',
-      type: 'GET',
-      success: function(data) {
-        console.log('success')
-      }.bind(this),
-      error: function() {
-        console.log('failure')
-      }
-    });
-  }
-
   searchAPI() {
-    // console.log(this.props);
     this.props.searchAPI({query: this.state.value}, (recipes) => {
       this.props.callback(recipes);
     });
@@ -47,7 +16,7 @@ class SearchBox extends React.Component {
         <input className="searchbox" type="text" onChange={(event) => {
           this.setState({value: event.target.value});
         }} value={this.state.value}/>
-        <button className="submitButton" onClick={() => {this.searchAPI(); this.saveSearch(); this.listSearches();}}>Search</button>
+        <button className="submitButton" onClick={() => {this.searchAPI()}}>Search</button>
       </div>
     )
   }
