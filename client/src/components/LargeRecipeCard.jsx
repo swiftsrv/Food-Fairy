@@ -8,7 +8,9 @@ class LargeRecipeCard extends React.Component {
   }
 
   componentWillMount(){
-    this.props.searchInstructions(this.state.id,(recipes)=>{
+
+    //instructions
+    this.props.searchInstructions(this.state.id, (recipes)=>{
       var concatRecipe = [];
       recipes.forEach(function(recipe){
         concatRecipe = concatRecipe.concat(recipe.steps);
@@ -16,6 +18,15 @@ class LargeRecipeCard extends React.Component {
       this.setState({
         steps: concatRecipe
       })
+    })
+
+    //ingredients as future functionality? this can be obtained
+    //from "Get Product Data" endpoint and searchIngredients has
+    //already been added to the searchSpontacular.js with that endpoint
+
+    //description/summary
+    this.props.searchSummary(this.state.id, (data)=>{
+      this.setState({ summary: JSON.stringify(data.summary) })
     })
   }
 
@@ -44,6 +55,7 @@ class LargeRecipeCard extends React.Component {
         <div className="recipeBody">
           <div className="recipeTitle">{this.props.recipe.title}</div>
           <div className="recipeLikes">{this.props.recipe.likes}</div>
+          <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
           <ol>
           {this.state.steps.map((step)=>{ return (<li>{step.step}</li>)})}
           </ol>

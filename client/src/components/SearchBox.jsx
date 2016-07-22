@@ -26,7 +26,7 @@ class SearchBox extends React.Component {
       url: '/api/searches',
       type: 'GET',
       success: function(data) {
-        console.log('success' + JSON.stringify(data))
+        console.log('success')
       }.bind(this),
       error: function() {
         console.log('failure')
