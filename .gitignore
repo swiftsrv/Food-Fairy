@@ -30,4 +30,5 @@ bower_components/
 client/compiled/
 
 # API key config
-server/config/*.js
+server/config/*.js.env
+.env
