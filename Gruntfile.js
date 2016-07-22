@@ -106,7 +106,7 @@ module.exports = function(grunt) {
   // Main grunt tasks
   ////////////////////////////////////////////////////
 
-  grunt.registerTask('build', ['babel', 'concat', 'cssmin', 'uglify']);
+  grunt.registerTask('build', ['concat', 'cssmin', 'uglify']);
   grunt.registerTask('test', ['eslint']);
 
 
