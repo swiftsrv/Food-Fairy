@@ -5,7 +5,7 @@
     "postinstall": "npm run babel",
     "start": "node index-server.js",
     "test": "grunt test",
-    "babel": "babel client --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled,server,dist,Gruntfile.js,ryosFile.js,index-server.js --source-maps inline"
+    "babel": "babel client --out-dir client/compiled --presets=es2015,react --ignore=node_modules,compiled,server,dist,Gruntfile.js,ryosFile.js,index-server.js --source-maps inline --force"
   },
   "description": "Greenfield project",
   "contributors": [
