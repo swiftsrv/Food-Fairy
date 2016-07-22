@@ -46,7 +46,50 @@ var searchInstructions = function(id, callback) {
   });
 };
 
+var searchSummary = function(id, callback) {
+  $.ajax({
+    url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + id +'/summary',
+    method: 'GET',
+    data: {
+      id: id
+    },
+    success: function success(data) {
+      if (callback) { callback(data); }
+      console.log("Successfully completed GET request");
+    },
+    error: function error() {
+      console.log("Failed to load data from Spoontacular");
+    },
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader("X-Mashape-Authorization", SPOONTACULAR_API_KEY);
+    }
+  });
+};
+
+var searchIngredients = function(id, callback) {
+  $.ajax({
+    url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + id +'/information?includeNutrition=false',
+    method: 'GET',
+    data: {
+      id: id
+    },
+    success: function success(data) {
+      console.log(data);
+      if (callback) { callback(data); }
+      console.log("Successfully completed GET request");
+    },
+    error: function error() {
+      console.log("Failed to load data from Spoontacular");
+    },
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader("X-Mashape-Authorization", SPOONTACULAR_API_KEY);
+    }
+  });
+};
+
 window.searchSpoontacular = searchSpoontacular;
 window.searchInstructions = searchInstructions;
+window.searchSummary      = searchSummary;
+window.searchIngredients  = searchIngredients;
 
 

@@ -18,7 +18,7 @@ class RecipeEntry extends React.Component {
           if(this.state.smallCard){
             return <SmallRecipeCard recipe={this.props.recipe} />
           }else{
-            return <LargeRecipeCard recipe={this.props.recipe} searchInstructions={window.searchInstructions}/>
+            return <LargeRecipeCard recipe={this.props.recipe} searchInstructions={window.searchInstructions} searchSummary={window.searchSummary} searchIngredients={window.searchIngredients}/>
           }
         })()}
       </div>
