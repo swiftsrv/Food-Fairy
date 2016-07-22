@@ -39,7 +39,7 @@ class SmallRecipeCard extends React.Component {
           <img className="recipeImg" src={this.props.recipe.image} alt=""/>
         </div>
         <div className="recipeBody">
-          <div className="recipeTitle" onClick={this.saveRecipe.bind(this)}>{this.props.recipe.title}</div>
+          <div className="recipeTitle">{this.props.recipe.title}</div>
           <div className="recipeLikes">{this.props.recipe.likes}</div>
         </div>
       </div>

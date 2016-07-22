@@ -24,7 +24,6 @@ class SearchPage extends React.Component {
       <div className='searchpage'>
         <Header />
         <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
-        <SavedRecipeList />
         <RecipeList recipeList={this.state.recipeList}/>
       </div>
     )
