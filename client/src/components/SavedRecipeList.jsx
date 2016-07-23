@@ -31,7 +31,7 @@ class SavedRecipeList extends React.Component {
     return(
       <div>
         <Header />
-        <div className="recipe-list" onClick={this.toggleCard.bind(this)}>
+        <div className="recipe-list pad-top" onClick={this.toggleCard.bind(this)}>
           {this.state.savedRecipes.map((recipe)=>{
             if(this.state.smallCard){
               return <SmallRecipeCardSaved key={recipe._id} recipe={recipe} deleteRecipe={this.deleteRecipe} />
