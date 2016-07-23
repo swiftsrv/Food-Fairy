@@ -1,18 +1,84 @@
 var express = require('express');
 var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var dotenv = require('dotenv');
 var path = require('path');
+var favicon = require('serve-favicon');
 var mongoose = require('mongoose');
+var passport = require('passport');
+var Auth0Strategy = require('passport-auth0');
+
+//load environment variables from .env into ENV in development
+dotenv.load();
+
+var routes = require('./routes/route');
+var user = require('./routes/user');
+
+// This will configure Passport to use Auth0
+var strategy = require('./config/setup-passport');
+passport.use(strategy);
+
+// use this section to keep a smaller payload
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cookieParser());
+// See express session docs for information on
+// the options: https://github.com/expressjs/session
+app.use(session({
+  secret: 'grumpycat',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(__dirname + '/../client'));
 app.use('/styles', express.static(__dirname + '/../client/style'));
 app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 app.use('/server', express.static(__dirname));
+
+app.use('/', routes);
+app.use('/user', user);
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/index-homepage.html'));
@@ -31,6 +97,11 @@ app.get('/saved', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/index-savedpage.html'));
 });
 
+app.get('/user', function (req, res) {
+  res.render('user', {
+    user: req.user
+  });
+});
 
 // if (process.env.NODE_ENV === 'production') {
 //   SPOONTACULAR_API_KEY = process.env.SPOONTACULAR_API_KEY;
