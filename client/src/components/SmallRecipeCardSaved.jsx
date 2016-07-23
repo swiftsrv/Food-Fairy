@@ -38,7 +38,7 @@ class SmallRecipeCardSaved extends React.Component {
             <div className="recipeTitle">{this.props.recipe.title}</div>
             <div dangerouslySetInnerHTML={{__html: this.props.recipe.summary}} />
             <div className="saveorlike">
-              <button className='deleteRecipeButton' onClick={()=>{this.deleteRecipe(this.props.recipe._id)}}>Delete Recipe</button>
+              <button className='deleteRecipeButton' onClick={(e)=>{e.stopPropagation(); this.deleteRecipe(this.props.recipe._id)}}>Delete Recipe</button>
               <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>
             </div>
           </div>

@@ -15,7 +15,7 @@ app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 app.use('/server', express.static(__dirname));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/../client/index-homepage.html'));
+  res.sendFile(path.join(__dirname + '/../client/index.html'));
   res.status(200);
 });
 
