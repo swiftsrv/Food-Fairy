@@ -131,14 +131,14 @@ body {
   margin: 15px;
 }
 
-.saved-recipe-list {
+/*.saved-recipe-list {
   width: 30%;
   display: inline-flex;
   background-color: #f8faf0;
   border: 2px solid #808d4c;
   border-radius: 25px;
   padding: 20px;
-}
+}*/
 
 .recipeImg img {
   max-width: 100%;
@@ -147,7 +147,6 @@ body {
 .recipeTitle {
   font-size: 22px;
   font-family: georgia;
-  cursor: pointer;
 }
 
 .recipeLikes {

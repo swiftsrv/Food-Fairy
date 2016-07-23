@@ -36,9 +36,11 @@ class LargeRecipeCard extends React.Component {
       type: 'POST',
       data: { title: this.props.recipe.title,
               image: this.props.recipe.image,
+              summary: this.state.summary,
+              steps: JSON.stringify(this.state.steps),
               likes: this.props.recipe.likes },
       success: function(data) {
-        console.log('success')
+        console.log('success', data);
       }.bind(this),
       error: function() {
         console.log('failure')
