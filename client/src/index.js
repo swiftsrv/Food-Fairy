@@ -1,1 +1,1 @@
-ReactDOM.render(<HomePage />, document.getElementById('app'));
+ReactDOM.render(<Home />, document.getElementById('app'));
