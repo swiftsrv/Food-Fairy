@@ -57,6 +57,8 @@ var recipeSchema = mongoose.Schema({
   title: String,
   image: String,
   likes: Number,
+  summary: String,
+  steps: String,
   missedIngredients: String,
   usedIngredients: String
 });
@@ -89,7 +91,9 @@ app.post('/api/recipes', function(req, res){
   var recipe = new Recipe({
     title: inbound.title,
     image: inbound.image,
-    likes: inbound.likes
+    likes: inbound.likes,
+    summary: inbound.summary,
+    steps: inbound.steps
   });
 
   recipe.save(function(err, data){

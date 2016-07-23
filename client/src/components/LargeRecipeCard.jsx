@@ -36,9 +36,11 @@ class LargeRecipeCard extends React.Component {
       type: 'POST',
       data: { title: this.props.recipe.title,
               image: this.props.recipe.image,
+              summary: this.state.summary,
+              steps: JSON.stringify(this.state.steps),
               likes: this.props.recipe.likes },
       success: function(data) {
-        console.log('success')
+        console.log('success', data);
       }.bind(this),
       error: function() {
         console.log('failure')
@@ -48,18 +50,23 @@ class LargeRecipeCard extends React.Component {
 
   render(){
     return(
-      <div className="recipe-card-large">
-        <div>
-          <img className="recipeImg" src={this.props.recipe.image} alt="" />
-        </div>
-        <div className="recipeBody">
-          <div className="recipeTitle">{this.props.recipe.title}</div>
-          <div className="recipeLikes">{this.props.recipe.likes}</div>
-          <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
-          <ol>
-          {this.state.steps.map((step)=>{ return (<li>{step.step}</li>)})}
-          </ol>
-          <button className='saveRecipeButton' onClick={this.saveRecipe.bind(this)}>Save Recipe</button>
+      <div>
+        <div className="recipe-card-large-backdrop"></div>
+        <div className="recipe-card-large">
+          <div>
+            <div className="recipeTitle text-center">{this.props.recipe.title}</div>
+            <img className="recipeImg center-block" src={this.props.recipe.image} alt="" />
+          </div>
+          <div className="recipeBody">
+            <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
+            <ol>
+              {this.state.steps.map((step)=>{ return (<li>{step.step}</li>)})}
+            </ol>
+            <div className="saveorlike">
+              <button className='saveRecipeButton' onClick={this.saveRecipe.bind(this)}>Save Recipe</button>
+              <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>
+            </div>
+          </div>
         </div>
       </div>
     )
