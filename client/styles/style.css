@@ -1,55 +1,92 @@
+/*
+  sets the background image to be the faded spoons and to stretch
+  and shrink to ensure full coverage of any window size
+*/
 body {
   background: url('../imgs/bg.jpg') no-repeat;
   background-size: 100%;
 }
 
-#container {
-  opacity: 0.8;
-  padding: 10px;
-}
-
+/*
+  gives the header it's pink border and sets it to a solid white
+  background
+*/
 .header {
-  position: relative;
   border-bottom: 2px solid #e6c6cd;
   background-color: #fff;
 }
 
+/*
+  the navbar - gives 10px of padding between top and bottom
+  for aesthetics (this does not include the line borders that seperate
+  each of the links)
+  (uses margin to override bootstrap styled navbar's margin property)
+*/
 .navbar {
   margin: 10px 0;
 }
 
+/*
+  removes underline from navbar links
+*/
 .navbar a {
   text-decoration: none;
-  color: #f9c4d1;
-  padding-bottom: 10px;
 }
 
-.logo {
-  height: 50px;
-}
-
-.line {
-  border-right: 1px solid #e6c6cd;
-  border-left: 1px solid #e6c6cd;
-}
-
+/*
+  controls home, search, saved, and login/logout links in navbar
+  gives top and bottom padding for aesthetics. Centering is controlled
+  through a bootstrap class (text-center). Gives the text a pink color in
+  georgia font and adds a little spacing between each of the letters, again
+  for aesthetics
+*/
 .navpad {
   padding: 15px 0;
+  color: #f9c4d1;
   font-family: georgia;
   letter-spacing: 3px;
   font-size: 14px;
 }
 
+/*
+  controls the hover effect on the navbar items. Turns the background muted
+  pink and the text moss green
+*/
 .navpad:hover {
   background-color: #f6edef;
   color: #7F9525;
 }
 
+/*
+  keeps the logo from rendering at full size
+*/
+.logo {
+  height: 50px;
+}
+
+/*
+  controls the border line between the navbar items
+*/
+.line {
+  border-right: 1px solid #e6c6cd;
+  border-left: 1px solid #e6c6cd;
+}
+
+/*
+  controls the bottom div on the homepage. Gives it top border and mild
+  green background color
+*/
 .homebox {
   border-top: 2px solid #c9d695;
   background-color: #ebf1d5;
 }
 
+/*
+  controls the welcome text on the homepage
+  Adds plenty of spacing to give it the right look.
+  Also keeps it contained to a centered (controlled through bootstrap
+  text-center class) div that takes up only 30% of the screen
+*/
 .homeIntro {
   font-family: Comic Sans MS;
   font-size: 18px;
@@ -61,32 +98,59 @@ body {
   width: 30%;
 }
 
+/*
+  used on search component to control the search form
+  gives it top/bottom padding and limited width
+  and sets it to be slightly see through
+  (centered through bootstrap center-block class)
+*/
 .searchbox {
   padding: 40px 0;
   width: 60%;
   opacity: 0.7;
 }
 
+/*
+  controls the input field of the searchbox
+  it takes most of the space and adds a small gap between it and
+  the submit button
+*/
 .searchboxinput {
   width: 80%;
   margin-right: 3%;
 }
 
+/*
+  controls the searchbox submit button
+*/
 .searchsubmit {
   width: 17%;
 }
 
-.searchpage {
-  width: 95%;
-  margin: auto;
-}
-
+/*
+  controls both saved recipes and searched recipes lists
+  adds space between it and the edges of the page
+*/
 .recipe-list {
   margin-left: 15%;
   margin-right: 15%;
-  display: inline-flex;
 }
 
+/*
+  class added to saved recipe-list to add the padding that the searchbox
+  adds for the search page
+*/
+.pad-top {
+  margin-top: 60px;
+}
+
+/*
+  The small recipe card - the one that shows in a big list on search and
+  save pages
+  Keeps them all uniform width with spacing between the bottom of one and
+  the top of the next. Gives it rounded corners and plenty of space between
+  content and the edges. Makes it slightly see-through
+*/
 .recipe-card {
   width: 100%;
   margin-bottom: 30px;
@@ -98,6 +162,12 @@ body {
   text-align: justify;
 }
 
+/*
+  Div that appears when a small recipe card is clicked on. This floats above
+  everything else. It takes up most of the page with some margins that are
+  filled by the backdrop. Makes it white with a thick green border and scrolls
+  when the content overflows the boundaries.
+*/
 .recipe-card-large {
   position: fixed;
   width: 80%;
@@ -112,6 +182,11 @@ body {
   text-align: justify;
 }
 
+/*
+  Black div that covers everything else behind the large recipe card. It takes
+  up the entire screen and does not move when the user scrolls. It is
+  translucent.
+*/
 .recipe-card-large-backdrop {
   position: fixed;
   width: 100%;
@@ -123,41 +198,49 @@ body {
   background-color: #000;
 }
 
-.recipe-card-large li {
+/*
+  gives spacing between the recipt steps on the large recipe card. Does the same
+  for all large recipe card divs.
+*/
+.recipe-card-large li, .recipe-card-large div {
   margin: 15px;
 }
 
-.recipe-card-large div {
-  margin: 15px;
-}
-
-/*.saved-recipe-list {
-  width: 30%;
-  display: inline-flex;
-  background-color: #f8faf0;
-  border: 2px solid #808d4c;
-  border-radius: 25px;
-  padding: 20px;
-}*/
-
+/*
+  contains the recipe image to within the confines of a bootstrap grid
+*/
 .recipeImg img {
   max-width: 100%;
 }
 
+/*
+  adds styling to the recipe title . . . as the classname would imply xD
+*/
 .recipeTitle {
   font-size: 22px;
   font-family: georgia;
 }
 
+/*
+  Makes the number of likes easier to see
+*/
 .recipeLikes {
   font-size: 16px;
 }
 
+/*
+  contains the pink thumbs up like image to 32px
+*/
 .recipeLikes img {
   width: 32px;
 }
 
-.saveorlike div, button{
+/*
+  controls the styling for the bottom of the large recipe cards
+  ensures that the save/delete recipe button and likes will show up on the
+  same line
+*/
+.saveorlike div, .saveorlike button{
   display: inline-block;
   margin: 10px;
 }

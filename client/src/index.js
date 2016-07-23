@@ -1,1 +1,1 @@
-ReactDOM.render(<Home />, document.getElementById('app'));
+ReactDOM.render(<Home searchAPI={window.searchSpoontacular} />, document.getElementById('app'));
