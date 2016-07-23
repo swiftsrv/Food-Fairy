@@ -1,3 +1,4 @@
+// Nav adds links on every page of Food Fairy
 var Nav = (props) => (
   <nav className="container-fluid">
     <div className="row text-center navbar">

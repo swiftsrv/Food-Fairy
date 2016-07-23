@@ -1,4 +1,7 @@
+// SearchPage renders the SearchBox and RecipeList components
 class SearchPage extends React.Component {
+  // props saves the data that returns in the searchAPI query
+  // searchAPI method is called on the searchBox component
   constructor(props){
     super(props);
     this.state={
@@ -17,6 +20,7 @@ class SearchPage extends React.Component {
       <div>
         <Header />
         <div className='searchpage'>
+          {/* passing callback to the searchAPI component to access the result of the searchAPI query */}
           <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
           <div className="recipe-list">
             <RecipeList recipeList={this.state.recipeList}/>
