@@ -1,4 +1,5 @@
 class SmallRecipeCardSaved extends React.Component {
+  //props: recipe - the recipe to be shown
   constructor(props){
     super(props);
     this.state = {
@@ -13,6 +14,8 @@ class SmallRecipeCardSaved extends React.Component {
   }
 
   deleteRecipe(id){
+    // ajax request that uses the recipe id to delete the data from the db
+    // and the display state is set to false
     $.ajax({
       url: '/api/recipes/'+id,
       type: 'delete',
@@ -28,6 +31,9 @@ class SmallRecipeCardSaved extends React.Component {
   }
 
   render(){
+    // when the delete recipe button is clicked, the deleteRecipe method is called
+    // deleteRecipe not only delete the data in the db, but also set the display state to false
+    // this will remove that card without rendering the whole page again
     if (this.state.display) {
       return(
         <div className="recipe-card row">
@@ -36,6 +42,10 @@ class SmallRecipeCardSaved extends React.Component {
           </div>
           <div className="recipeBody col-md-7">
             <div className="recipeTitle">{this.props.recipe.title}</div>
+            {/* react does not like html being added from unknown sources to its rendered
+            pages. This is to protect from attacks. In our case, we're forcing it to
+            accept html from the Ajax query to the API. This could likely be implemented
+            in a different way */}
             <div dangerouslySetInnerHTML={{__html: this.props.recipe.summary}} />
             <div className="saveorlike">
               <button className='deleteRecipeButton' onClick={(e)=>{e.stopPropagation(); this.deleteRecipe(this.props.recipe._id)}}>Delete Recipe</button>

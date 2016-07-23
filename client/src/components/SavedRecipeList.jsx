@@ -1,3 +1,4 @@
+// SavedRecipeList renders the cards retrieved from the database (saved recipes from the searchPage)
 class SavedRecipeList extends React.Component {
   constructor(props){
     super(props);
@@ -13,7 +14,9 @@ class SavedRecipeList extends React.Component {
     })
   }
 
+  //runs before the component is rendered
   componentWillMount(){
+    // ajax request to get the recipes data from the db
     $.ajax({
       url: '/api/recipes',
       type: 'GET',
@@ -32,6 +35,7 @@ class SavedRecipeList extends React.Component {
       <div>
         <Header />
         <div className="recipe-list pad-top" onClick={this.toggleCard.bind(this)}>
+          {/* iterate over all recipes received from the db request */}
           {this.state.savedRecipes.map((recipe)=>{
             if(this.state.smallCard){
               return <SmallRecipeCardSaved key={recipe._id} recipe={recipe} deleteRecipe={this.deleteRecipe} />
