@@ -1,7 +1,8 @@
+// API get request using the findByIngredients endpoint
 var searchSpoontacular = function searchSpoontacular(options, callback) {
   $.ajax({
     // This is the url you should use to communicate
-    //with the Spoontacular API server.
+    // with the Spoontacular API server.
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients',
     method: 'GET',
     data: {
@@ -22,6 +23,7 @@ var searchSpoontacular = function searchSpoontacular(options, callback) {
     error: function error() {
       console.log("Failed to load data from Spoontacular");
     },
+    //this is required or else the request will not be authorized
     beforeSend: function(xhr) {
       xhr.setRequestHeader("X-Mashape-Authorization", SPOONTACULAR_API_KEY);
     }

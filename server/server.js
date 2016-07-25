@@ -10,17 +10,20 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 
-//load environment variables from .env into ENV in development
+// load environment variables from .env. good place for keys.
+// our api key wouldn't work here for some reason
 dotenv.load();
 
+//Auth0 routes per set up instructions
 var routes = require('./routes/route');
 var user = require('./routes/user');
 
-// This will configure Passport to use Auth0
+// this will configure Passport to use Auth0
 var strategy = require('./config/setup-passport');
 passport.use(strategy);
 
-// use this section to keep a smaller payload
+// Auth0's use of Passport to determine user
+// object that should be stored in the session
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -31,7 +34,7 @@ passport.deserializeUser(function(user, done) {
 
 var app = express();
 
-// view engine setup
+// Auth0 view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -39,27 +42,32 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-// See express session docs for information on
+
+// Auth0 express session docs for information on
 // the options: https://github.com/expressjs/session
 app.use(session({
   secret: 'grumpycat',
   resave: true,
   saveUninitialized: true
 }));
+
+// Auth0 middleware required to initialize Passport
+// and retain persistent login sessions
 app.use(passport.initialize());
 app.use(passport.session());
+
+//middleware pointers to static file directories
 app.use(express.static(__dirname + '/../client'));
 app.use('/styles', express.static(__dirname + '/../client/style'));
 app.use('/node_modules', express.static(__dirname + '/../node_modules'));
 app.use('/server', express.static(__dirname));
 
+//Auth0 routes
 app.use('/', routes);
 app.use('/user', user);
 
-// error handlers
-
-// development error handler
-// will print stacktrace
+// express error handlers
+// development error handler will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -70,8 +78,8 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
+// express error handlers
+// production error handler no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
@@ -103,6 +111,7 @@ app.get('/user', function (req, res) {
   });
 });
 
+// attempt to store API key in heroku env variable
 // if (process.env.NODE_ENV === 'production') {
 //   SPOONTACULAR_API_KEY = process.env.SPOONTACULAR_API_KEY;
 // } else {
@@ -138,11 +147,11 @@ var searchSchema = mongoose.Schema({
   query: String
 });
 
+// models for mongo database
 var Recipe = mongoose.model('Recipe', recipeSchema);
 var Search = mongoose.model('Search', searchSchema);
 
-
-//get all recipes from db
+// reteive all recipes from db
 app.get('/api/recipes', function(req, res){
   Recipe.find({}).exec(function(err, recipes){
     if(err){
@@ -154,8 +163,7 @@ app.get('/api/recipes', function(req, res){
   });
 });
 
-
-//add activity and send back all activities
+// add recipes to mongo database and retrieve all recipes
 app.post('/api/recipes', function(req, res){
 
   var inbound = req.body;
@@ -201,7 +209,8 @@ app.delete('/api/recipes/:recipe_id', function(req, res){
 });
 
 
-//get all recipes from db
+// get all searches from db
+// currently not being used
 app.get('/api/searches', function(req, res){
   Search.find({}).exec(function(err, recipes){
     if(err){
@@ -213,7 +222,8 @@ app.get('/api/searches', function(req, res){
 });
 
 
-//add search and send back all searches
+// add search and send back all searches
+// currently not being used
 app.post('/api/searches', function(req, res){
 
   var inbound = req.body;
@@ -239,7 +249,8 @@ app.post('/api/searches', function(req, res){
 });
 
 
-//remove search and send back all search
+// remove search and send back all search
+// currently not being used
 app.delete('/api/searches/:search', function(req, res){
   Search.remove({ _id : req.params.search_id }, function(err, search){
     if(err){
