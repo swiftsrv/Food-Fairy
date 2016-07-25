@@ -1,3 +1,5 @@
+// Auth0 functionality to ensure login or requirelogin
+// future functionality not currently being used
 var express = require('express');
 var passport = require('passport');
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
