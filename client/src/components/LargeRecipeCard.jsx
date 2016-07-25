@@ -14,7 +14,7 @@ class LargeRecipeCard extends React.Component {
     }
   }
 
-  //runs when component is rendered
+  //runs when component is rendered (react calls this function before rendering)
   componentWillMount(){
 
     //retrtieves the instructions and creates the steps array from the data
@@ -61,7 +61,8 @@ class LargeRecipeCard extends React.Component {
     return(
       <div>
         {/* the backdrop that covers the rest of the page when the large recipe
-          card is rendered */}
+          card is rendered - does not need content. It's styled to an absolute position
+          to take up the entire screen */}
         <div className="recipe-card-large-backdrop"></div>
         {/* the actual large recipe card */}
         <div className="recipe-card-large">

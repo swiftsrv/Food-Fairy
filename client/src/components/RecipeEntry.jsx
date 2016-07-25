@@ -8,6 +8,7 @@ class RecipeEntry extends React.Component {
     }
   }
 
+  //a function that triggers on click - it toggles between the small and large recipe cards
   toggleCard (){
     this.setState({
       smallCard: !this.state.smallCard
@@ -17,12 +18,14 @@ class RecipeEntry extends React.Component {
   render(){
     return (
       <div className="recipe-list-entry" onClick={this.toggleCard.bind(this)}>
+        {/* an if statement in render must be written inside of a function - so
+          this is an ES6 function that is called immediantly. */}
         {(()=>{
           if(this.state.smallCard){
             return <SmallRecipeCard recipe={this.props.recipe} searchSummary={window.searchSummary} />
           }else{
-            // if smallCard state is false, a LargeRecipeCard will appear and make a new query to the API
-            // to grab the instructions that will be loaded
+            {/* if smallCard state is false, a LargeRecipeCard will appear and make a new query to the API
+              to grab the instructions that will be loaded */}
             return <LargeRecipeCard recipe={this.props.recipe} searchInstructions={window.searchInstructions} searchSummary={window.searchSummary} searchIngredients={window.searchIngredients}/>
           }
         })()}

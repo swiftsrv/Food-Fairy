@@ -9,6 +9,8 @@ class SearchPage extends React.Component {
     }
   }
 
+  //used as a callback passed to the searchbox - it gets access to the recipe from
+  //  inside the searchbox component
   createRecipeList(list) {
     this.setState({
       recipeList: list
