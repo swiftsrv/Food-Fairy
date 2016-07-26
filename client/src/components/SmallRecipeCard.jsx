@@ -9,7 +9,7 @@ class SmallRecipeCard extends React.Component {
     };
   }
 
-  //runs before the component is rendered
+  //runs when component is rendered (react calls this function before rendering)
   componentWillMount () {
     //ingredients as future functionality? this can be obtained
     //from "Get Product Data" endpoint and searchIngredients has

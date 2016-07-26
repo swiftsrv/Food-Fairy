@@ -7,6 +7,7 @@ class SmallRecipeCardSaved extends React.Component {
     }
   }
 
+  //function used to remove recipe card from page once it's been deleted
   displayFalse (){
     this.setState({
       display:false

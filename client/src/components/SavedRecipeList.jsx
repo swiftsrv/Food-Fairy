@@ -8,13 +8,14 @@ class SavedRecipeList extends React.Component {
     }
   }
 
+  //a function that triggers on click - it toggles between the small and large recipe cards
   toggleCard (){
     this.setState({
       smallCard: !this.state.smallCard
     })
   }
 
-  //runs before the component is rendered
+  //runs when component is rendered (react calls this function before rendering)
   componentWillMount(){
     // ajax request to get the recipes data from the db
     $.ajax({
