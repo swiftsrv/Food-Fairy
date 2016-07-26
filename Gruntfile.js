@@ -5,6 +5,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    // we have been running the babel compile from package.json
+    // because we had some minor issues running it from grunt
+    // but kept this here in case you would like to build from grunt instead.
+    // it's not currntly being called in the registered tasks
     babel: {
       options: {
         sourceMap: false,
@@ -42,6 +46,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // jshint was giving issues with react es6 so we used eslint
     eslint: {
       all: [
         'client/compiled/src/**/*.js'
@@ -59,7 +64,7 @@ module.exports = function(grunt) {
         command: 'git push heroku master'
       },
       options: {
-          //fail on errors and display pass or err on terminal
+        //fail on errors and display pass or err on terminal
         failOnError: true,
         stdout: true,
         stderr: true,
@@ -106,6 +111,8 @@ module.exports = function(grunt) {
   // Main grunt tasks
   ////////////////////////////////////////////////////
 
+  // these are build and test tasks being called on travis ci
+  // installed mocha dependency but don't have tests
   grunt.registerTask('build', ['concat', 'cssmin', 'uglify']);
   grunt.registerTask('test', ['eslint']);
 

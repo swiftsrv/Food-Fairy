@@ -11,6 +11,8 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
   res.render('user', { user: req.user });
 });
 
+// could set the app to require
+// authentication before making available
 // app.get('/user',
 //   requiresLogin,
 //   function (req, res) {

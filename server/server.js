@@ -111,13 +111,6 @@ app.get('/user', function (req, res) {
   });
 });
 
-// attempt to store API key in heroku env variable
-// if (process.env.NODE_ENV === 'production') {
-//   SPOONTACULAR_API_KEY = process.env.SPOONTACULAR_API_KEY;
-// } else {
-//   SPOONTACULAR_API_KEY = SPOONTACULAR_API_KEY;
-// }
-
 //connect to monglab for production or localhost for dev
 mongoURI = 'mongodb://foodfairy:12345@ds023425.mlab.com:23425/heroku_xnp0xnxj' ||
            'mongodb://localhost:27017/HRR17-Jigglypuff';

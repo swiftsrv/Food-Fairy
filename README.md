@@ -26,7 +26,7 @@
 ## Requirements
 
 - Node 6.1
-- dotenv
+- .env file (get this from one of Jigglypuff team members)
 
 ## Development
 
@@ -36,11 +36,13 @@ From within the root directory:
 
 ```sh
 npm install
+To run the server locally use 'nodemon', 'npm run babel', and 'mongod'
 ```
 
 ### Roadmap
 
 View the project roadmap [here](https://waffle.io/HRR17-Jigglypuff/HRR17-Jigglypuff)
+View the project wishlist.md
 
 
 ## Contributing
