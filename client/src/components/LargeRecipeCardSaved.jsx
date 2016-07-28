@@ -15,7 +15,7 @@ var LargeRecipeCardSaved = (props) => (
           pages. This is to protect from attacks. In our case, we're forcing it to
           accept html from the Ajax query to the API. This could likely be implemented
           in a different way */}
-          <div dangerouslySetInnerHTML={{__html: this.props.recipe.summary}} />
+          <div dangerouslySetInnerHTML={{__html: this.props.recipe.summary}}></div>
           <ol>
             {/* loops through all the recipe steps and adds them to an ordered list */}
             {JSON.parse(this.props.recipe.steps).map((step)=>{ return (<li>{step.step}</li>)})}
@@ -26,7 +26,7 @@ var LargeRecipeCardSaved = (props) => (
         </div>
       </div>
     </div>
-  </div>
+
 )
 
 window.LargeRecipeCard = LargeRecipeCardSaved;
