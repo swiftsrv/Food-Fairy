@@ -1,7 +1,7 @@
 //the homepage. Rendered from __dirname + '/'
 var Home = (props) => (
-  {/* props: searchAPI  function with an ajax call to the API */}
-  {/* container div */}
+  /* props: searchAPI  function with an ajax call to the API */
+  /* container div */
   <div className="homepage">
     <Header />
     {/* img seperating green welcome div from the header
@@ -13,7 +13,7 @@ var Home = (props) => (
       <div className="homeIntro center-block">
         <p>Welcome to FoodFairy.com! Just tell the Fairy what ingrediants you have lying around your house and she'll whip you up a recipe in no time!</p>
       </div>
-      <SearchBox searchAPI={this.props.searchAPI}/>
+      <SearchBox searchAPI={props.searchAPI}/>
     </div>
   </div>
 )
