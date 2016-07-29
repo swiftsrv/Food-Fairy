@@ -15,7 +15,11 @@ var searchSpoontacular = function({query, max = 10}, callback) {
       ranking: "1"
     },
     success: function success(data) {
-      if (callback) { callback(data); }
+
+      if (callback) {
+        callback(data);
+      }
+      console.log("data is ", data);
       console.log("Successfully completed GET request");
     },
     error: function error() {
@@ -82,6 +86,7 @@ var searchIngredients = function(id, callback) {
     },
     success: function success(data) {
       if (callback) { callback(data); }
+      console.log("ingrdient data ", data);
       console.log("Successfully completed GET request");
     },
     error: function error() {

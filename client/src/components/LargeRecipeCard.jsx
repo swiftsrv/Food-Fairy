@@ -31,6 +31,15 @@ class LargeRecipeCard extends React.Component {
     //ingredients as future functionality? this can be obtained
     //from "Get Product Data" endpoint and searchIngredients has
     //already been added to the searchSpontacular.js with that endpoint
+    this.props.searchIngredients(this.state.id, (ingredients)=>{
+      console.log("inside of componentWillMount");
+      var ingList = ingredients.extendedIngredients.map (ingredient => {
+        return ingredient.name;
+      });
+      console.log("ingList " , ingList);
+      this.setState({ ingredients: ingList})
+    })
+
 
     //retrieves the summary/description for this recipe
     this.props.searchSummary(this.state.id, (data)=>{
@@ -62,7 +71,7 @@ class LargeRecipeCard extends React.Component {
     $.ajax({
       url: '/api/email',
       type: 'POST',
-      data: { steps: JSON.stringify(this.state.steps)},
+      data: { steps: JSON.stringify(this.state.ingredients)},
       success: function(data) {
         console.log('success', data);
       }.bind(this),
@@ -91,6 +100,7 @@ class LargeRecipeCard extends React.Component {
               accept html from the Ajax query to the API. This could likely be implemented
               in a different way */}
             <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
+
             <ol>
               {/* loops through all the recipe steps and adds them to an ordered list */}
               {this.state.steps.map((step)=>{ return (<li>{step.step}</li>)})}
@@ -98,7 +108,7 @@ class LargeRecipeCard extends React.Component {
             <div className="saveorlike">
               <button className='saveRecipeButton' onClick={this.saveRecipe.bind(this)}>Save Recipe</button>
 
-               <button className='saveRecipeButton' onClick={this.emailRecipe.bind(this)}>Send Recipe to Email</button>
+               <button className='saveRecipeButton' onClick={this.emailRecipe.bind(this)}>Send Ingredient List to Email</button>
 
               <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>
             </div>
