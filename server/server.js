@@ -9,6 +9,9 @@ var favicon = require('serve-favicon');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
+var mailer = require('express-mailer');
+var EmailTemplate = require('email-templates').EmailTemplate;
+
 
 // load environment variables from .env. good place for keys.
 // our api key wouldn't work here for some reason
@@ -33,7 +36,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 var app = express();
-
+var email = new EmailTemplate(__dirname + '/views');
 // Auth0 view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -65,6 +68,8 @@ app.use('/server', express.static(__dirname));
 //Auth0 routes
 app.use('/', routes);
 app.use('/user', user);
+
+
 
 // express error handlers
 // development error handler will print stacktrace
@@ -257,6 +262,36 @@ app.delete('/api/searches/:search', function(req, res){
         }
       });
     }
+  });
+});
+
+
+mailer.extend(app, {
+  from: 'jenjengoo@gmail.com',
+  host: 'smtp.gmail.com', // hostname
+  secureConnection: true, // use SSL
+  port: 465, // port for secure SMTP
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
+  auth: {
+    user: 'sqrtlhrr17@gmail.com',
+    pass: 'sqrtlsqrtl'
+  }
+});
+
+//send an email of recipe
+app.post('/api/email', function(req, res){
+   app.mailer.send('email', {
+    to: 'jenjengoo@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+    subject: 'Test Email', // REQUIRED.
+    text: 'email body'
+  }, function (err) {
+    if (err) {
+      // handle error
+      console.log(err);
+      res.send('There was an error sending the email');
+      return;
+    }
+    res.send('Email Sent');
   });
 });
 
