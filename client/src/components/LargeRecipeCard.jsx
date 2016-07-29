@@ -57,6 +57,21 @@ class LargeRecipeCard extends React.Component {
     });
   }
 
+  //function to save the recipe to the mongo database
+  emailRecipe(){
+    $.ajax({
+      url: '/api/email',
+      type: 'POST',
+      data: { steps: JSON.stringify(this.state.steps)},
+      success: function(data) {
+        console.log('success', data);
+      }.bind(this),
+      error: function() {
+        console.log('failure')
+      }
+    });
+  }
+
   render(){
     return(
       <div>
@@ -82,6 +97,9 @@ class LargeRecipeCard extends React.Component {
             </ol>
             <div className="saveorlike">
               <button className='saveRecipeButton' onClick={this.saveRecipe.bind(this)}>Save Recipe</button>
+
+               <button className='saveRecipeButton' onClick={this.emailRecipe.bind(this)}>Send Recipe to Email</button>
+
               <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>
             </div>
           </div>

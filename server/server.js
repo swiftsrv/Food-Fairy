@@ -283,7 +283,7 @@ app.post('/api/email', function(req, res){
    app.mailer.send('email', {
     to: 'jenjengoo@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
     subject: 'Test Email', // REQUIRED.
-    text: 'email body'
+    text: req.body.steps
   }, function (err) {
     if (err) {
       // handle error
