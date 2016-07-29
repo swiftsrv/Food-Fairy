@@ -6,7 +6,7 @@ class SearchPage extends React.Component {
     super(props);
     this.state={
       recipeList: [],
-      pantryList: []
+      pantryList: ["eggs", "duck"]
     }
   }
 
@@ -29,7 +29,9 @@ class SearchPage extends React.Component {
             <RecipeList recipeList={this.state.recipeList}/>
           </div>
           <div>
-            <Pantry pantryList={this.state.pantryList}/>
+            <Pantry pantryList={this.state.pantryList}
+                    createRecipeList={this.createRecipeList.bind(this)}
+                    searchAPI={this.props.searchAPI}/>
           </div>
         </div>
       </div>
