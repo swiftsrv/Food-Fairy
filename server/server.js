@@ -122,7 +122,7 @@ app.get('/user', function (req, res) {
 
 //connect to monglab for production or localhost for dev
 /******************************************/
-mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/HRR17-Jigglypuff';
+mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/HRR17-Jigglypuff';
 
 mongoose.connect(mongoURI);
 
