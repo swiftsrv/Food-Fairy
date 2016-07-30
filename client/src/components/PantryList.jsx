@@ -7,11 +7,22 @@ class PantryList extends React.Component {
   }
 
   addToSearchablePantryIngredients(ingredient){
+    console.log(ingredient);
     this.state.searchablePantryIngredients.push(ingredient);
+    console.log(this.state.searchablePantryIngredients);
   }
 
-  removeFromSearchablePantryIngredients (ingredientindex) {
+  removeFromSearchablePantryIngredients (ingredient) {
+    var ingredientIndex = this.state.searchablePantryIngredients.indexOf(ingredient)
     this.state.searchablePantryIngredients.splice(ingredientIndex, 1);
+    console.log(this.state.searchablePantryIngredients);
+  }
+
+  searchAPIwithSearchablePantryIngredients () {
+    this.props.searchAPI({query: this.state.searchablePantryIngredients.join(", ")}, (recipes) => {
+      // callback gives access to the result of the searchAPI query
+      this.props.createRecipeList(recipes);
+    });
   }
 
   render(){
@@ -23,13 +34,13 @@ class PantryList extends React.Component {
               return(
                   <PantryListEntry ingredientIndex={ingredientIndex}
                                    ingredient={ingredient}
-                                   addToSearchablePantryIngredients={this.addToSearchablePantryItems}
-                                   removeFromSearchablePantryIndgredients={this.removeFromSearchablePantryItems}/>
+                                   addToSearchablePantryIngredients={this.addToSearchablePantryIngredients.bind(this)}
+                                   removeFromSearchablePantryIngredients={this.removeFromSearchablePantryIngredients.bind(this)}/>
               )
             })
           }
         </ul>
-        <button className="pantryinputsubmit" onClick={() => {}}>Search with Pantry Ingredients</button>
+        <button className="pantryinputsubmit" onClick={() => this.searchAPIwithSearchablePantryIngredients()}>Search with Pantry Ingredients</button>
       </div>
     )
   }

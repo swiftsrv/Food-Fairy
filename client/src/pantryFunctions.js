@@ -33,6 +33,22 @@ var getIngredient = function(callback){
       console.log("Failed to fetch pantry");
     },
   });
-}
+};
+
+var removeIngredient = function(callback){
+  $.ajax({
+    url: '/api/pantryList',
+    method: 'DELETE',
+    success: function success(data) {
+      if (callback) {
+        console.log("Ingredient removed")
+        callback(data);
+      }
+    },
+    error: function error() {
+      console.log("Failed to remove ingredient");
+    },
+  });
+};
 
 window.saveIngredient = saveIngredient;
