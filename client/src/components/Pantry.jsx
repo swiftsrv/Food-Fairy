@@ -11,10 +11,6 @@ class Pantry extends React.Component{
     this.render();
   }
 
-  getIngredientforInitialState () {
-
-  }
-
   componentWillMount(){
     this.props.getIngredient(function(ingredientList){
       this.setState({pantryList: ingredientList});
