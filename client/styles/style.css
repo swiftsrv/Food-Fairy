@@ -61,7 +61,8 @@ body {
   keeps the logo from rendering at full size
 */
 .logo {
-  height: 50px;
+  height: 70px;
+  width: 200px;
 }
 
 /*

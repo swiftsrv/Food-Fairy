@@ -10,7 +10,8 @@ class LargeRecipeCard extends React.Component {
     super(props);
     this.state = {
       id: this.props.recipe.id,
-      steps: []
+      steps: [],
+      ingredientData: []
     }
   }
 
@@ -36,8 +37,11 @@ class LargeRecipeCard extends React.Component {
       var ingList = ingredients.extendedIngredients.map (ingredient => {
         return ingredient.name;
       });
+      var ingData = ingredients.extendedIngredients.map (ingredient => {
+        return ingredient.originalString;
+      });
       console.log("ingList " , ingList);
-      this.setState({ ingredients: ingList})
+      this.setState({ ingredients: ingList, ingredientData: ingData})
     })
 
 
@@ -99,10 +103,18 @@ class LargeRecipeCard extends React.Component {
               pages. This is to protect from attacks. In our case, we're forcing it to
               accept html from the Ajax query to the API. This could likely be implemented
               in a different way */}
+
+
             <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
 
+            Ingredient List:
+            <ul>
+              {this.state.ingredientData.map((ingredient)=>{ return (<li>{ingredient}</li>)})}
+            </ul>
             <ol>
               {/* loops through all the recipe steps and adds them to an ordered list */}
+
+
               {this.state.steps.map((step)=>{ return (<li>{step.step}</li>)})}
             </ol>
             <div className="saveorlike">

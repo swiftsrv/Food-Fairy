@@ -286,6 +286,7 @@ app.post('/api/email', function(req, res){
    list.forEach(function(item){
       listString += '\n' + item;
    })
+   listString += '\n' + '-Your friends at Foraje';
    console.log("listString is ", listString);
    app.mailer.send('email', {
     to: 'jenjengoo@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
