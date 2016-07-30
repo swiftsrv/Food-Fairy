@@ -155,13 +155,16 @@ body {
 .recipe-card {
   width: 100%;
   margin-bottom: 30px;
-  opacity: 0.8;
+/*  opacity: 0.8;
   background-color: #f8faf0;
   border: 2px solid #96a266;
-  border-radius: 25px;
+  border-radius: 25px;*/
   padding: 60px;
   text-align: justify;
+  margin-left: 0.5px;
 }
+
+
 
 /*
   Div that appears when a small recipe card is clicked on. This floats above
@@ -245,3 +248,36 @@ body {
   display: inline-block;
   margin: 10px;
 }
+
+.renderedRecipe {
+  min-width: 100px;
+}
+
+.newCard{
+  width: 30%;
+  background-color: white;
+  opacity: .90;
+/*  border-color: white;
+  border-width: 5px;*/
+  border-radius: 20px;
+ /* -webkit-box-shadow: 10px 10px 23px 13px rgba(184,203,227,1);
+-moz-box-shadow: 10px 10px 23px 13px rgba(184,203,227,1);
+box-shadow: 10px 10px 23px 13px rgba(184,203,227,1);*/
+-webkit-box-shadow: 3px -2px 36px -10px rgba(156,150,179,1);
+-moz-box-shadow: 3px -2px 36px -10px rgba(156,150,179,1);
+box-shadow: 3px -2px 36px -10px rgba(156,150,179,1);
+margin-right: 10px;
+margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

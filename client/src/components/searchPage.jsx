@@ -25,8 +25,12 @@ class SearchPage extends React.Component {
         <div className='searchpage'>
           {/* passing callback to the searchAPI component to access the result of the searchAPI query */}
           <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
-          <div className="recipe-list">
+          <div>
+          <div className="recipe-card row">
+            <div className="recipeImg col-md-1"></div>
             <RecipeList recipeList={this.state.recipeList}/>
+            <div className="recipeImg col-md-1"> </div>
+          </div>
           </div>
           <div>
             <Pantry pantryList={this.state.pantryList}
