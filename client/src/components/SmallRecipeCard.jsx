@@ -23,20 +23,20 @@ class SmallRecipeCard extends React.Component {
 
   render(){
     return(
-      <div className="recipe-card row">
-        <div className="recipeImg col-md-5">
-          <img className="center-block" src={this.props.recipe.image} />
-        </div>
-        <div className="recipeBody col-md-7">
+      <div className="recipe-list">
+        <div className="recipeImg newCard col-xs-6 col-sm-4">
           <div className="recipeTitle">{this.props.recipe.title}</div>
+          <img className="center-block" src={this.props.recipe.image} />
+          <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>
+        </div>
 
           {/* react does not like html being added from unknown sources to its rendered
             pages. This is to protect from attacks. In our case, we're forcing it to
             accept html from the Ajax query to the API. This could likely be implemented
-            in a different way */}
-          <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
-          <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>
-        </div>
+            in a different way */
+            // <div dangerouslySetInnerHTML={{__html: this.state.summary}} />
+          }
+
       </div>
     )
   }
