@@ -122,8 +122,7 @@ app.get('/user', function (req, res) {
 
 //connect to monglab for production or localhost for dev
 /******************************************/
-mongoURI = 'mongodb://foodfairy:12345@ds023425.mlab.com:23425/heroku_xnp0xnxj' ||
-           'mongodb://localhost:27017/HRR17-Jigglypuff';
+mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/HRR17-Jigglypuff';
 
 mongoose.connect(mongoURI);
 
@@ -153,8 +152,7 @@ var searchSchema = mongoose.Schema({
 });
 
 var pantrySchema = mongoose.Schema({
-  email: String,
-  pantry: Array
+  ingredient: String
 });
 
 // models for mongo database
@@ -166,36 +164,37 @@ var Pantry = mongoose.model('Pantry', pantrySchema);
 
 //pantry api calls
 /*****************************************************/
-var testPantryArray = ['egg', 'duck'];
-Pantry.create({email: 'jenjengoo@gmail.com' , pantry: testPantryArray});
 
 app.get('/api/pantryList', function(req, res){
-  Pantry.findOne({})
+  Pantry.find({})
     .exec(function(err, result){
       console.log(result);
       if(err)throw err;
-      res.status(200).send(result.pantry);
+      res.status(200).send(result);
     });
 });
 //Post might not work
 app.post('/api/pantryList', function(req, res){
-  var newItem = req.body.ingredient,
-      email = 'jenjengoo@gmail.com';
-  Pantry.findOne({email: email})
-    .exec(function(err, result){
-      result.pantry.push(newItem);
-      res.status(201).send(result.pantry);
-    });
+  var ingredient = new Pantry({ingredient: req.body.ingredient});
+
+  ingredient.save(function (err, result) {
+    if (err) throw err;
+    Pantry.find({})
+      .exec(function (err, ingredients){
+        res.status(201).send(ingredients);
+      });
+  });
 });
 //DELETE FUNCTION
 app.delete('/api/pantryList', function(req, res){
-  var item = req.body.ingredient;
-      email = 'jenjengoo@gmail.com';
-  Pantry.findOne({email: email})
+  Pantry.remove({ingredient: req.body.ingredient})
     .exec(function(err, result){
-        result.pantry.
-        res.status(200).send(result.pantry);
-      });
+      if(err) throw err;
+      Pantry.find({})
+        .exec(function (err, ingredients){
+          res.status(200).send(ingredients);
+        });
+    })
 
 });
 /*****************************************************/
