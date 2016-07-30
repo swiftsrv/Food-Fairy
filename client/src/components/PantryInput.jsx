@@ -12,7 +12,7 @@ class PantryInput extends React.Component {
         <input className="pantryinput" type="text" onChange={(event) => {
             this.setState({value: event.target.value});
         }}value={this.state.value}/>
-        <button className="pantryinputsubmit" onClick={() => {}}>Save Ingredient</button>
+        <button className="pantryinputsubmit" onClick={() => {this.props.saveIngredient(this.state.value, this.props.updatePantryList)}}>Save Ingredient</button>
       </div>
     )
   }

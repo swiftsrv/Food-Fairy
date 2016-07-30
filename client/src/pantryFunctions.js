@@ -9,7 +9,10 @@ var saveIngredient = function (ingredient, callback) {
     },
     success: function success(data) {
       if (callback) {
-        callback(data);
+        var ingredients = data.map(function(obj){
+          return obj.ingredient;
+        });
+        callback(ingredients);;
       }
       console.log("Successfully completed Pantry post request");
     },
@@ -20,13 +23,17 @@ var saveIngredient = function (ingredient, callback) {
 };
 
 var getIngredient = function(callback){
+
   $.ajax({
     url: '/api/pantryList',
     method: 'GET',
     success: function success(data) {
       if (callback) {
         console.log("Pantry loaded")
-        callback(data);
+        var ingredients = data.map(function(obj){
+          return obj.ingredient;
+        });
+        callback(ingredients);
       }
     },
     error: function error() {
@@ -35,14 +42,19 @@ var getIngredient = function(callback){
   });
 };
 
-var removeIngredient = function(callback){
+var removeIngredient = function(ingredient, callback){
   $.ajax({
     url: '/api/pantryList',
     method: 'DELETE',
+    data: {
+      "ingredient": ingredient
+    },
     success: function success(data) {
       if (callback) {
-        console.log("Ingredient removed")
-        callback(data);
+        var ingredients = data.map(function(obj){
+          return obj.ingredient;
+        })
+        callback(ingredients);
       }
     },
     error: function error() {
@@ -52,3 +64,5 @@ var removeIngredient = function(callback){
 };
 
 window.saveIngredient = saveIngredient;
+window.getIngredient = getIngredient;
+window.removeIngredient = removeIngredient;

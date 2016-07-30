@@ -35,7 +35,9 @@ class PantryList extends React.Component {
                   <PantryListEntry ingredientIndex={ingredientIndex}
                                    ingredient={ingredient}
                                    addToSearchablePantryIngredients={this.addToSearchablePantryIngredients.bind(this)}
-                                   removeFromSearchablePantryIngredients={this.removeFromSearchablePantryIngredients.bind(this)}/>
+                                   removeFromSearchablePantryIngredients={this.removeFromSearchablePantryIngredients.bind(this)}
+                                   updatePantryList={this.props.updatePantryList}
+                                   removeIngredient={this.props.removeIngredient}/>
               )
             })
           }
