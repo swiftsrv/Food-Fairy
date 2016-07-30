@@ -14,7 +14,9 @@ class PantryList extends React.Component {
 
   removeFromSearchablePantryIngredients (ingredient) {
     var ingredientIndex = this.state.searchablePantryIngredients.indexOf(ingredient)
-    this.state.searchablePantryIngredients.splice(ingredientIndex, 1);
+    if(ingredientIndex !== -1){
+      this.state.searchablePantryIngredients.splice(ingredientIndex, 1);
+    }
     console.log(this.state.searchablePantryIngredients);
   }
 

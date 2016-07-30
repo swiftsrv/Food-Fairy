@@ -19,7 +19,10 @@ class PantryListEntry extends React.Component {
     return(
       <li>
         <button onClick={()=> this.toggleIngredient(this.props.ingredient)}>{this.props.ingredient}</button>
-        <button onClick={()=> this.props.removeIngredient(this.props.ingredient, this.props.updatePantryList)}>remove</button>
+        <button onClick={()=> {
+          this.props.removeFromSearchablePantryIngredients(this.props.ingredient);
+          this.props.removeIngredient(this.props.ingredient, this.props.updatePantryList);
+        }}>remove</button>
       </li>
     )
   }
