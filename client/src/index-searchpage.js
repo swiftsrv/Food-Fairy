@@ -1,1 +1,1 @@
-ReactDOM.render(<SearchPage searchAPI={window.searchSpoontacular}/>, document.getElementById('app'));
+ReactDOM.render(<SearchPage searchAPI={window.searchSpoontacular} saveIngredient={window.saveIngredient}/>, document.getElementById('app'));
