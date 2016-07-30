@@ -284,7 +284,7 @@ app.post('/api/email', function(req, res){
    var listString = "Don't Forget to Pick Up: ";
    console.log("list is ", list);
    list.forEach(function(item){
-      listString += '/n' + item;
+      listString += '\n' + item;
    })
    console.log("listString is ", listString);
    app.mailer.send('email', {
