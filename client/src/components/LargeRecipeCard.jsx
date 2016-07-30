@@ -71,7 +71,7 @@ class LargeRecipeCard extends React.Component {
     $.ajax({
       url: '/api/email',
       type: 'POST',
-      data: { steps: JSON.stringify(this.state.ingredients)},
+      data: { groceries: JSON.stringify(this.state.ingredients)},
       success: function(data) {
         console.log('success', data);
       }.bind(this),
