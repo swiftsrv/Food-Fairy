@@ -116,7 +116,12 @@ app.get('/user', function (req, res) {
   });
 });
 
+//DATABASE
+/*************************************************************************************/
+/*************************************************************************************/
+
 //connect to monglab for production or localhost for dev
+/******************************************/
 mongoURI = 'mongodb://foodfairy:12345@ds023425.mlab.com:23425/heroku_xnp0xnxj' ||
            'mongodb://localhost:27017/HRR17-Jigglypuff';
 
@@ -130,6 +135,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
  console.log('Mongodb connection open!');
 });
+/*****************************************/
+
 
 var recipeSchema = mongoose.Schema({
   title: String,
@@ -145,9 +152,53 @@ var searchSchema = mongoose.Schema({
   query: String
 });
 
+var pantrySchema = mongoose.Schema({
+  email: String,
+  pantry: Array
+});
+
 // models for mongo database
 var Recipe = mongoose.model('Recipe', recipeSchema);
 var Search = mongoose.model('Search', searchSchema);
+var Pantry = mongoose.model('Pantry', pantrySchema);
+/**************************************************************************************/
+/**************************************************************************************/
+
+//pantry api calls
+/*****************************************************/
+var testPantryArray = ['egg', 'duck'];
+Pantry.create({email: 'jenjengoo@gmail.com' , pantry: testPantryArray});
+
+app.get('/api/pantryList', function(req, res){
+  Pantry.findOne({})
+    .exec(function(err, result){
+      console.log(result);
+      if(err)throw err;
+      res.status(200).send(result.pantry);
+    });
+});
+//Post might not work
+app.post('/api/pantryList', function(req, res){
+  var newItem = req.body.ingredient,
+      email = 'jenjengoo@gmail.com';
+  Pantry.findOne({email: email})
+    .exec(function(err, result){
+      result.pantry.push(newItem);
+      res.status(201).send(result.pantry);
+    });
+});
+//DELETE FUNCTION
+app.delete('/api/pantryList', function(req, res){
+  var item = req.body.ingredient;
+      email = 'jenjengoo@gmail.com';
+  Pantry.findOne({email: email})
+    .exec(function(err, result){
+        result.pantry.
+        res.status(200).send(result.pantry);
+      });
+
+});
+/*****************************************************/
 
 // reteive all recipes from db
 app.get('/api/recipes', function(req, res){
