@@ -280,10 +280,17 @@ mailer.extend(app, {
 
 //send an email of recipe
 app.post('/api/email', function(req, res){
+   var list = JSON.parse(req.body.groceries);
+   var listString = "Don't Forget to Pick Up: ";
+   console.log("list is ", list);
+   list.forEach(function(item){
+      listString += '\n' + item;
+   })
+   console.log("listString is ", listString);
    app.mailer.send('email', {
     to: 'jenjengoo@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
-    subject: 'Test Email', // REQUIRED.
-    text: req.body.steps
+    subject: 'Grocery List from Foraje', // REQUIRED.
+    text: listString
   }, function (err) {
     if (err) {
       // handle error
