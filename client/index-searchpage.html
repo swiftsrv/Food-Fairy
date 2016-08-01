@@ -17,6 +17,14 @@
   <script src="../node_modules/react-dom/dist/react-dom.js"></script>
   <script src="../node_modules/lodash/lodash.js"></script>
 
+  <script>
+    $(document).ready(function() {
+    $('[data-toggle=offcanvas]').click(function() {
+      $('.sidebar-offcanvas').toggleClass('active');
+      console.log("pantry clicked!");
+    });
+  });
+  </script>
   <!-- COMPONENTS -->
   <script src="compiled/src/searchSpoontacular.js"></script>
   <script src="compiled/src/pantryFunctions.js"></script>
