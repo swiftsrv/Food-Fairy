@@ -317,7 +317,7 @@ app.delete('/api/searches/:search', function(req, res){
 
 
 mailer.extend(app, {
-  from: 'jenjengoo@gmail.com',
+  from: 'sqrtlhrr17@gmail.com',
   host: 'smtp.gmail.com', // hostname
   secureConnection: true, // use SSL
   port: 465, // port for secure SMTP
@@ -339,7 +339,7 @@ app.post('/api/email', function(req, res){
    listString += '\n' + '-Your friends at Foraje';
    console.log("listString is ", listString);
    app.mailer.send('email', {
-    to: 'jenjengoo@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+    to: 'sqrtlhrr17@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
     subject: 'Grocery List from Foraje', // REQUIRED.
     text: listString
   }, function (err) {
