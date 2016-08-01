@@ -34,7 +34,8 @@ class SearchPage extends React.Component {
         <div className='searchpage'>
           {/* passing callback to the searchAPI component to access the result of the searchAPI query */}
           <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
-           <button type="button" onClick={this.togglePantry.bind(this)}>
+          <div className="container">
+           <button className='btn btn-default' type="button" onClick={this.togglePantry.bind(this)}>
             Pantry
            </button>
 
@@ -58,6 +59,7 @@ class SearchPage extends React.Component {
             <div className="recipeImg col-md-1"> </div>
           </div>
           </div>
+        </div>
 
         </div>
       </div>

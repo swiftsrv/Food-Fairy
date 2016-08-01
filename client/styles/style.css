@@ -297,6 +297,18 @@ z-index: 0;
   }
 }
 
+.container {
+  width: 90%;
+}
+
+
+.ingredientSelect{
+  background-color: grey;
+  outline-color: blue;
+}
+
+
+
 
 
 
