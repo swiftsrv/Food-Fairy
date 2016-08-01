@@ -44,7 +44,7 @@ class PantryList extends React.Component {
             })
           }
         </ul>
-        <button className="pantryinputsubmit" onClick={() => this.searchAPIwithSearchablePantryIngredients()}>Search with Pantry Ingredients</button>
+        <button className='btn btn-default' onClick={() => this.searchAPIwithSearchablePantryIngredients()}>Search with Pantry Ingredients</button>
       </div>
     )
   }

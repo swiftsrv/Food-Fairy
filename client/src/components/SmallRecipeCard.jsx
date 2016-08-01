@@ -24,7 +24,7 @@ class SmallRecipeCard extends React.Component {
   render(){
     return(
       <div className="recipe-list">
-        <div className="recipeImg newCard col-xs-6 col-sm-4">
+        <div className="recipeImg newCard col-md-6 col-xs-6 col-sm-4">
           <div className="recipeTitle">{this.props.recipe.title}</div>
           <img className="center-block" src={this.props.recipe.image} />
           <div className="recipeLikes"><img src="imgs/likes.png" /> {this.props.recipe.likes}</div>

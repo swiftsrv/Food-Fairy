@@ -133,9 +133,9 @@ body {
   adds space between it and the edges of the page
 */
 .recipe-list {
-  margin-left: 15%;
+/*  margin-left: 15%;
   margin-right: 15%;
-  z-index: 0;
+*/  z-index: 0;
 }
 
 /*
@@ -154,15 +154,15 @@ body {
   content and the edges. Makes it slightly see-through
 */
 .recipe-card {
-  width: 100%;
+  /*width: 100%;
   margin-bottom: 30px;
-/*  opacity: 0.8;
+  opacity: 0.8;
   background-color: #f8faf0;
   border: 2px solid #96a266;
-  border-radius: 25px;*/
+  border-radius: 25px;
   padding: 60px;
+  margin-left: 0.5px;*/
   text-align: justify;
-  margin-left: 0.5px;
 }
 
 
@@ -296,6 +296,18 @@ z-index: 0;
     padding-top:0;
   }
 }
+
+.container {
+  width: 100%;
+}
+
+
+.ingredientSelect{
+  background-color: grey;
+  outline-color: blue;
+}
+
+
 
 
 

@@ -34,11 +34,13 @@ class SearchPage extends React.Component {
         <div className='searchpage'>
           {/* passing callback to the searchAPI component to access the result of the searchAPI query */}
           <SearchBox searchAPI={this.props.searchAPI} callback={this.createRecipeList.bind(this)}/>
-           <button type="button" onClick={this.togglePantry.bind(this)}>
+          <div className="container">
+           <button className='btn btn-default' type="button" onClick={this.togglePantry.bind(this)}>
             Pantry
            </button>
 
-
+          <div className="row">
+           <div className="col-md-3">
             <div className="sidebar-offcanvas" role="navigation">
             {this.state.pantry ?
             <Pantry createRecipeList={this.createRecipeList.bind(this)}
@@ -49,16 +51,17 @@ class SearchPage extends React.Component {
             : null }
 
             </div>
+           </div>
 
-
+          <div className="col-md-9">
           <div>
           <div className="recipe-card row text-right">
-            <div className="recipeImg col-md-1"></div>
             <RecipeList recipeList={this.state.recipeList}/>
-            <div className="recipeImg col-md-1"> </div>
           </div>
           </div>
-
+          </div>
+        </div>
+        </div>
         </div>
       </div>
     )
