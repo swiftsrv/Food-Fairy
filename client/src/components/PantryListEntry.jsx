@@ -24,7 +24,6 @@ class PantryListEntry extends React.Component {
           this.props.removeFromSearchablePantryIngredients(this.props.ingredient);
           this.props.removeIngredient(this.props.ingredient, this.props.updatePantryList);
         }}>remove</button>
-
       </li>
     )
   }
