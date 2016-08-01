@@ -135,6 +135,7 @@ body {
 .recipe-list {
   margin-left: 15%;
   margin-right: 15%;
+  z-index: 0;
 }
 
 /*
@@ -200,7 +201,7 @@ body {
   height: 100%;
   top: 0%;
   left: 0%;
-  z-index:1001;
+  z-index: 1001;
   opacity: 0.6;
   background-color: #000;
 }
@@ -267,7 +268,35 @@ box-shadow: 3px -2px 36px -10px rgba(156,150,179,1);
 margin-right: 10px;
 margin-left: 10px;
 margin-bottom: 10px;
+z-index: 0;
 }
+
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+  .sidebar-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .sidebar-offcanvas {
+    left: -41.6%;
+    z-index: -1001;
+  }
+
+  .sidebar-offcanvas.active {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+    z-index: -1001;
+  }
+  #sidebar {
+    padding-top:0;
+  }
+}
+
 
 
 
