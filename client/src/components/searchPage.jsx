@@ -39,7 +39,8 @@ class SearchPage extends React.Component {
             Pantry
            </button>
 
-
+          <div className="row">
+           <div className="col-md-3">
             <div className="sidebar-offcanvas" role="navigation">
             {this.state.pantry ?
             <Pantry createRecipeList={this.createRecipeList.bind(this)}
@@ -50,17 +51,17 @@ class SearchPage extends React.Component {
             : null }
 
             </div>
+           </div>
 
-
+          <div className="col-md-9">
           <div>
           <div className="recipe-card row text-right">
-            <div className="recipeImg col-md-1"></div>
             <RecipeList recipeList={this.state.recipeList}/>
-            <div className="recipeImg col-md-1"> </div>
+          </div>
           </div>
           </div>
         </div>
-
+        </div>
         </div>
       </div>
     )
